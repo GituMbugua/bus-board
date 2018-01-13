@@ -1,8 +1,11 @@
-from threading import local
-from urllib.parse import urlsplit, urlunsplit
+from __future__ import unicode_literals
 
-from django.utils.encoding import iri_to_uri
+from threading import local
+
+from django.utils import six
+from django.utils.encoding import force_text, iri_to_uri
 from django.utils.functional import lazy
+from django.utils.six.moves.urllib.parse import urlsplit, urlunsplit
 from django.utils.translation import override
 
 from .exceptions import NoReverseMatch, Resolver404
@@ -33,7 +36,7 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None):
 
     prefix = get_script_prefix()
 
-    if not isinstance(viewname, str):
+    if not isinstance(viewname, six.string_types):
         view = viewname
     else:
         parts = viewname.split(':')
@@ -85,10 +88,10 @@ def reverse(viewname, urlconf=None, args=None, kwargs=None, current_app=None):
         if ns_pattern:
             resolver = get_ns_resolver(ns_pattern, resolver)
 
-    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
 
 
-reverse_lazy = lazy(reverse, str)
+reverse_lazy = lazy(reverse, six.text_type)
 
 
 def clear_url_caches():
