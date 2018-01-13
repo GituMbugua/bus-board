@@ -1,9 +1,6 @@
-# bus-board
-An online booking system for bus tickets in Kenya
-
 # Bus Board
 
-## By **[Gitu Mbugua(https://github.com/GituMbugua)]**, **[John Mutavi(https://github.com/jonnygovish)]** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
+## By **[Gitu Mbugua](https://github.com/GituMbugua)**, **[John Mutavi](https://github.com/jonnygovish)** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 ## Description
 [This]() is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
@@ -83,7 +80,7 @@ DATABASES = {
 
 ### License
 
-MIT (c) 2017 **[Gitu Mbugua(https://github.com/GituMbugua)]**, **[John Mutavi(https://github.com/jonnygovish)]** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
+MIT (c) 2017 **[Gitu Mbugua](https://github.com/GituMbugua)**, **[John Mutavi](https://github.com/jonnygovish)** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 
 
