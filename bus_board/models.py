@@ -90,7 +90,7 @@ class Bus(models.Model):
     capacity = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return self.bus_organisation.name + ' Bus No.' + self.id
+        return self.bus_organisation.name + ' Bus No.' + str(self.id)
 
     @classmethod
     def get_buses(cls):
@@ -160,7 +160,7 @@ class Schedule(models.Model):
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.bus.bus_organisation.name + 'Bus No.' + self.bus.id + 'Schedule No.' + self.id
+        return self.bus.bus_organisation.name + ' Bus No.' + str(self.bus.id) + ' Schedule No.' + str(self.id)
 
     @classmethod
     def get_schedules(cls):
