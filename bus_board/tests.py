@@ -25,9 +25,9 @@ class BusOrganisationTestClass(TestCase):
         '''
         self.new_bus_organisation.save()
 
-        test_bus_organisation = BusOrganisation(name="Anothe Bus Ltd")
+        self.test_bus_organisation = BusOrganisation(name="Anothe Bus Ltd")
 
-        test_bus_organisation.save()
+        self.test_bus_organisation.save()
 
         gotten_buses = BusOrganisation.get_bus_organisations()
 
@@ -41,9 +41,9 @@ class BusOrganisationTestClass(TestCase):
         '''
         self.new_bus_organisation.save()
 
-        test_bus_organisation = BusOrganisation(name="Another Bus Ltd")
+        self.test_bus_organisation = BusOrganisation(name="Another Bus Ltd")
 
-        test_bus_organisation.save()
+        self.test_bus_organisation.save()
 
         gotten_bus = BusOrganisation.get_single_bus_organisation(self.new_bus_organisation.id)
 
@@ -74,9 +74,9 @@ class RouteTestClass(TestCase):
         '''
         self.new_route.save()
 
-        test_route = Route(departure_location='Nakuru', destination_location='Nairobi')
+        self.test_route = Route(departure_location='Nakuru', destination_location='Nairobi')
 
-        test_route.save()
+        self.test_route.save()
 
         gotten_routes = Route.get_routes()
 
@@ -90,9 +90,9 @@ class RouteTestClass(TestCase):
         '''
         self.new_route.save()
 
-        test_route = Route(departure_location='Naivasha', destination_location='Nairobi')
+        self.test_route = Route(departure_location='Naivasha', destination_location='Nairobi')
 
-        test_route.save()
+        self.test_route.save()
 
         gotten_route= Route.get_single_route(self.new_route.id)
 
@@ -109,17 +109,17 @@ class BusTestClass(TestCase):
         Method that creates an instance of Bus class
         '''
         # Create instance of Bus Organisation class
-        test_bus_organisation = BusOrganisation(name='Kiki And Son ltd')
+        self.test_bus_organisation = BusOrganisation(name='Kiki And Son ltd')
 
-        test_bus_organisation.save()
+        self.test_bus_organisation.save()
 
         # Create instance of Route class
-        test_route = Route(departure_location='Nairobi', destination_location='Mombasa')
+        self.test_route = Route(departure_location='Nairobi', destination_location='Mombasa')
 
-        test_route.save()
+        self.test_route.save()
 
         # Create instance of Bus class
-        self.new_bus = Bus(bus_organisation=test_bus_organisation, number_plate='KBC 243J', route=test_route, capacity=34 )
+        self.new_bus = Bus(bus_organisation=self.test_bus_organisation, number_plate='KBC 243J', route=self.test_route, capacity=34 )
 
     def test_instance(self):
         '''
@@ -133,17 +133,17 @@ class BusTestClass(TestCase):
         '''
         self.new_bus.save()
 
-        test_bus_organisation2 = BusOrganisation(name="Another Bus Ltd")
+        self.another_bus_organisation = BusOrganisation(name="Another Bus Ltd")
 
-        test_bus_organisation2.save()
+        self.another_bus_organisation.save()
 
-        test_route2 = Route(departure_location='Nakuru', destination_location='Nairobi')
+        self.another_route = Route(departure_location='Nakuru', destination_location='Nairobi')
 
-        test_route2.save()
+        self.another_route.save()
 
-        test_bus = Bus(bus_organisation=test_bus_organisation2, number_plate='KCJ 523T', route=test_route2, capacity=44 )
+        self.test_bus = Bus(bus_organisation=self.another_bus_organisation, number_plate='KCJ 523T', route=self.another_route, capacity=44 )
 
-        test_bus.save()
+        self.test_bus.save()
 
         gotten_buses = Bus.get_buses()
 
@@ -157,17 +157,17 @@ class BusTestClass(TestCase):
         '''
         self.new_bus.save()
 
-        test_bus_organisation2 = BusOrganisation(name="Another Bus Ltd")
+        self.another_bus_organisation = BusOrganisation(name="Another Bus Ltd")
 
-        test_bus_organisation2.save()
+        self.another_bus_organisation.save()
 
-        test_route2 = Route(departure_location='Nakuru', destination_location='Nairobi')
+        self.another_route = Route(departure_location='Nakuru', destination_location='Nairobi')
 
-        test_route2.save()
+        self.another_route.save()
 
-        test_bus = Bus(bus_organisation=test_bus_organisation2, number_plate='KCJ 523T', route=test_route2, capacity=44 )
+        self.test_bus = Bus(bus_organisation=self.another_bus_organisation, number_plate='KCJ 523T', route=self.another_route, capacity=44 )
 
-        test_bus.save()
+        self.test_bus.save()
 
         gotten_bus = Bus.get_single_bus(self.new_bus.id)
 
@@ -181,23 +181,23 @@ class BusTestClass(TestCase):
         '''
         self.new_bus.save()
 
-        test_bus_organisation2 = BusOrganisation(name="Another Bus Ltd")
+        self.another_bus_organisation = BusOrganisation(name="Another Bus Ltd")
 
-        test_bus_organisation2.save()
+        self.another_bus_organisation.save()
 
-        test_route2 = Route(departure_location='Nakuru', destination_location='Nairobi')
+        self.another_route = Route(departure_location='Nakuru', destination_location='Nairobi')
 
-        test_route2.save()
+        self.another_route.save()
 
-        test_bus = Bus(bus_organisation=test_bus_organisation2, number_plate='KCJ 523T', route=test_route2, capacity=44 )
+        self.test_bus = Bus(bus_organisation=self.another_bus_organisation, number_plate='KCJ 523T', route=self.another_route, capacity=44 )
 
-        test_bus.save()
+        self.test_bus.save()
 
-        test_bus2 = Bus(bus_organisation=test_bus_organisation2, number_plate='KBY 312T', route=test_route, capacity=38 )
+        self.test_bus2 = Bus(bus_organisation=self.another_bus_organisation, number_plate='KBY 312T', route=self.test_route, capacity=38 )
 
-        test_bus2.save()
+        self.test_bus2.save()
 
-        gotten_bus= Bus.get_bus_organisation_buses(self.test_bus_organisation2.id)
+        gotten_buses = Bus.get_bus_organisation_buses(self.another_bus_organisation.id)
 
         buses = Bus.objects.all()
 
@@ -209,23 +209,23 @@ class BusTestClass(TestCase):
         '''
         self.new_bus.save()
 
-        test_bus_organisation2 = BusOrganisation(name="Another Bus Ltd")
+        self.another_bus_organisation = BusOrganisation(name="Another Bus Ltd")
 
-        test_bus_organisation2.save()
+        self.another_bus_organisation.save()
 
-        test_route2 = Route(departure_location='Nakuru', destination_location='Nairobi')
+        self.another_route = Route(departure_location='Nakuru', destination_location='Nairobi')
 
-        test_route2.save()
+        self.another_route.save()
 
-        test_bus = Bus(bus_organisation=test_bus_organisation2, number_plate='KCJ 523T', route=test_route2, capacity=44 )
+        self.test_bus = Bus(bus_organisation=self.another_bus_organisation, number_plate='KCJ 523T', route=self.another_route, capacity=44 )
 
-        test_bus.save()
+        self.test_bus.save()
 
-        test_bus2 = Bus(bus_organisation=test_bus_organisation, number_plate='KBY 312T', route=test_route2, capacity=38 )
+        self.test_bus2 = Bus(bus_organisation=self.test_bus_organisation, number_plate='KBY 312T', route=self.another_route, capacity=38 )
 
-        test_bus2.save()
+        self.test_bus2.save()
 
-        gotten_bus= Bus.get_route_buses(self.test_route2.id)
+        gotten_buses = Bus.get_route_buses(self.another_route.id)
 
         buses = Bus.objects.all()
 

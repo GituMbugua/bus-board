@@ -148,6 +148,7 @@ class Bus(models.Model):
         route_buses = cls.objects.filter(route=route_id)
 
         return route_buses
+        
 
 
 
