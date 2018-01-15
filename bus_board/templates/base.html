@@ -1,0 +1,32 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bus Board</title>
+
+    {% block styles %}
+        {% bootstrap_css%}
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% endblock %}
+</head>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
+        <script src="{% static 'js/script.js' %}"></script>
+        <script src="https://use.fontawesome.com/b0e34048aa.js"></script>
+    {% endblock %}
+</body>
+</html>

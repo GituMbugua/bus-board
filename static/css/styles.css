@@ -1,0 +1,20 @@
+/* navbar */
+.navbar {
+    background: transparent;
+    border: none;
+    margin-bottom: 0;
+}
+/* end */
+
+/* landing page */
+.search {
+    background: rgba(0, 255, 255, 0.561);
+    height: 400px;
+}
+.book {
+    background: url('../img/road.jpg') no-repeat;
+    background-size: cover;
+    height: 600px;
+    color: whitesmoke;
+}
+/* end */
