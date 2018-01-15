@@ -1,0 +1,72 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+  <div class="hero-primary">
+      <div class="row small-collapse">
+        <div class="route">
+          <div class="text-xl">
+            <span>Nairobi</span>
+            <span><i class="fa fa-long-arrow-right"></i></span>
+            <span>Eldoret</span>
+          </div>
+          <div class="text-xl">Mon, Jan 15</div>
+        </div>
+        
+        <!-- search form -->
+        <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+          <div class="row small-collapse">
+            <div class="column column-inline large-5">
+              <div class="row">
+                <div class="column column-inline small-12 medium-6 form-group large-6">
+                  <div class="input-group input-group-left input-group-right input-search-bar">
+  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </form>
+        <!-- search form end -->
+      </div>
+  
+  </div>
+
+</div>
+<div class="container">
+
+  <div class="row results">
+    {% if buses %}
+    <span>buses found </span>
+    {% else %}
+    <span>0 buses found</span>
+    {% endif %}
+  </div>
+</div>
+
+<div class="container scheduleBar">
+  <ul class="cat">
+    <li class="bus-companies">Bus Companies</li>
+    <li class="departure">Departure</li>
+    <li class="duration">Estimated Duration</li>
+    <li class="seats">Seats</li>
+    <li class="price">Price</li>
+  </ul>
+
+</div>
+
+<div class="container busSearchResults">
+  <div class="row items">
+    <ul class="res">
+      <li class="single-items">
+        <div class="stuff">
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

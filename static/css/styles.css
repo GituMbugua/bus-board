@@ -1,11 +1,15 @@
-/* navbar */
-.navbar {
-    background: transparent;
-    border: none;
-    margin-bottom: 0;
+* {
+  box-sizing: border-box;
 }
-/* end */
+html {
+  font-size: 62.5%;
+  width: 100%
+}
 
+body{
+  background: #EBF2F7;
+  font-size: 1.6em;
+}
 /* landing page */
 .search {
     background: rgba(0, 255, 255, 0.561);
@@ -18,3 +22,102 @@
     color: whitesmoke;
 }
 /* end */
+
+.row {
+  margin: 0 auto;
+  width:100%
+}
+/* navbar */
+.navbar {
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
+}
+.navbar-default{
+  margin: 0;
+}
+/* end navbar */
+
+/* search update section */
+
+.hero-primary{
+  background-color: #127ccb;
+  color: #fff;
+  padding: 23px 19px;
+}
+
+.route{
+  display: flex;
+  justify-content: space-around;
+}
+.text-xl {
+  font-size: 1.9em;
+  font-weight: 700;
+}
+/***************************************************************************************
+results section
+*********************************************************************/
+.results {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1em;
+  padding-bottom: 15px
+}
+
+.scheduleBar .cat{
+  height: 2.125em;
+  background: #fff;
+  border: solid 1px #d4dee5;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 5px !important;
+  margin-top: 5px
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.cat .bus-companies{
+  flex: 2;
+}
+
+.cat .departure{
+  flex: 1
+}
+
+.cat .duration{
+  flex: 1;
+}
+
+.cat .seats{
+  flex: 1;
+}
+
+.cat .price {
+  flex: 1
+}
+
+.busSearchResults{
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.busSearchResults .items{
+  align-items: flex-start;
+}
+
+
+.busSearchResults .items .single-items {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px 0 rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
+  border: 1px solid #d4dee5;
+  border-radius: 2px;
+  margin-top: 10px;
+  background: #fff;
+  height: 100px;
+}
