@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'final.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-<<<<<<< HEAD
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -86,19 +86,9 @@ DATABASES = {
         # 'PASSWORD': 'sqlpass',
     }
 }
-=======
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'bus_board',
-#         'USER': 'puppah',
-#         'PASSWORD':'zanpakutou',
-#     }
-# }
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
->>>>>>> 7a573664abdb2e1256a9ca50ee8b2ac62c687d4d
 
 
 # Password validation
