@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bus_board.apps.BusBoardConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,14 +74,14 @@ WSGI_APPLICATION = 'final.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bus_board',
-        'USER': 'carol',
-        'PASSWORD': 'carol1',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'bus_board',
+#         'USER': 'carol',
+#         'PASSWORD': 'carol1',
+#     }
+# }
 
 
 # Password validation
@@ -122,6 +121,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
