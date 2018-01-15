@@ -83,10 +83,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bus_board',
-        'USER': 'gitu_m',
-        'PASSWORD': 'sqlpass',
+        'USER': 'carol',
+        'PASSWORD': 'carol1',
     }
 }
+
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
