@@ -10,23 +10,7 @@ body{
   background: #EBF2F7;
   font-size: 1.6em;
 }
-/* landing page */
-.search {
-    background: rgba(0, 255, 255, 0.561);
-    height: 400px;
-}
-.book {
-    background: url('../img/road.jpg') no-repeat;
-    background-size: cover;
-    height: 600px;
-    color: whitesmoke;
-}
-/* end */
 
-.row {
-  margin: 0 auto;
-  width:100%
-}
 /* navbar */
 .navbar {
   background: transparent;
@@ -37,6 +21,45 @@ body{
   margin: 0;
 }
 /* end navbar */
+
+/*************************************************************************************
+ landing page
+*************************************************************************************/
+/* search section */
+.search {
+  background: rgba(0, 255, 255, 0.561);
+  height: 400px;
+}
+/* end */
+
+/* featured routes */
+.featured img {
+  max-height: 300px;
+}
+/* end */
+
+/* 'book with us' section */
+.book-overlay {
+  height: inherit;
+  background: rgba(0, 0, 0, 0.5);
+}
+.book {
+    background: url('../img/road.jpg') no-repeat;
+    background-size: cover;
+    height: 600px;
+    color: whitesmoke;
+}
+/* end */
+
+/*************************************************************************************
+ end of landing page
+*************************************************************************************/
+
+
+
+
+
+
 
 /* search update section */
 

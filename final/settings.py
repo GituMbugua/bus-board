@@ -82,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bus_board',
-        'USER': 'puppah',
-        'PASSWORD': 'zanpakutou',
+        'USER': 'gitu_m',
+        'PASSWORD': 'sqlpass',
     }
 }
 import dj_database_url
