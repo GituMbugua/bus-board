@@ -2,73 +2,86 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<div class="container-fluid hero-primary">
 
-  <div class="hero-primary">
-      <div class="row small-collapse">
-        <div class="route">
-          <div class="text-xl">
-            <span>Nairobi</span>
-            <span><i class="fa fa-long-arrow-right"></i></span>
-            <span>Eldoret</span>
-          </div>
-          <div class="text-xl">Mon, Jan 15</div>
-        </div>
-        
-        <!-- search form -->
-        <form action="{% url 'search_results' %}" class="search-form search-form-inline">
-          <div class="row small-collapse">
-            <div class="column column-inline large-5">
-              <div class="row">
-                <div class="column column-inline small-12 medium-6 form-group input-search-bar large-6">
-                  <div class="input-group input-group-left input-group-right ">
-                    <input type="text" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location">
-                    <input type="text" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location">
-                    <input type="date" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date">
-                    <button class="btn btn-update">Update</button>
-                  </div>
-                </div>
-              </div>
+  <div class="row">
+  
+        <div class="container">
+
+          <div class="route">
+            <div class="text-xl">
+              <span>Nairobi</span>
+              <span><i class="fa fa-long-arrow-right"></i></span>
+              <span>Eldoret</span>
             </div>
+            <div class="text-xl">Mon, Jan 15</div>
           </div>
-        </form>
-        <!-- search form end -->
-      </div>
+          
+          <!-- search form -->
+          <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+              <div class="column column-inline large-5">
+                  <div class=" form-group input-search-bar ">
+                    <div class="input-group ">
+                      <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location">
+                      <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location">
+                      <input type="date" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date">
+                      <button class="btn btn-success">Update</button>
+                    </div>
+                  </div>
+              </div>
+          </form>
+          <!-- search form end -->
+        </div>
   
   </div>
 
 </div>
-<div class="container">
+<div class="container-fluid">
 
   <div class="row results">
-    {% if buses %}
-    <span>buses found </span>
-    {% else %}
-    <span>0 buses found</span>
-    {% endif %}
+    <div class="container">
+      
+      {% if buses %}
+      <span>buses found </span>
+      {% else %}
+      <span>0 buses found</span>
+      {% endif %}
+    </div>
   </div>
 </div>
 
-<div class="container scheduleBar">
-  <ul class="cat">
-    <li class="bus-companies">Bus Companies</li>
-    <li class="departure">Departure</li>
-    <li class="duration">Estimated Duration</li>
-    <li class="seats">Seats</li>
-    <li class="price">Price</li>
-  </ul>
+<div class="container-fluid scheduleBar">
+  <div class="row">
+    <div class="container">
+
+      <ul class="cat">
+        <li class="bus-companies">Bus Companies</li>
+        <li class="departure">Departure</li>
+        <li class="duration">Estimated Duration</li>
+        <li class="seats">Seats</li>
+        <li class="price">Price</li>
+      </ul>
+    </div>
+  </div>
 
 </div>
 
-<div class="container busSearchResults">
+<div class="container-fluid busSearchResults">
   <div class="row items">
-    <ul class="res">
-      <li class="single-items">
-        <div class="stuff">
+    <div class="container">
 
-        </div>
-      </li>
-    </ul>
+      <ul class="res">
+        <li class="single-items">
+          <div class="stuff">
+              <section id="bus">Jonny and sons</section>
+              <section id="departure">7.00am</section>
+              <section id="duration">10hrs</section>
+              <section id="seats">30</section>
+              <section id="price">Kes 500</section>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 {% endblock %}
