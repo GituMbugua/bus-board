@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime, date, time, timedelta
+from django.utils import timezone
 
 # Create your models here.
 class BusOrganisation(models.Model):
@@ -222,6 +224,29 @@ class Schedule(models.Model):
         travel_estimation = str(calculate_travel_estimation.seconds//3600) + ' hours ' + str(calculate_travel_estimation.seconds//60 % 60) + ' minutes'
 
         return travel_estimation
+
+    @classmethod
+    def get_departure_buses(cls, departure_date):
+        '''
+        Function to get schedules with the specific departure date
+
+        Args
+            departure_date : the departure date
+
+        Return
+            departure_buses : list of all the Schedule objects in the database with the specific departure date
+        '''
+        departure_datetime = datetime.combine(departure_date, time(tzinfo=timezone.get_current_timezone()))
+
+        # print(departure_datetime)
+        next_date = departure_datetime + timedelta(days=1)
+        # print(next_date)
+
+        # Get allschedules in the 24 hour period
+        departure_buses = cls.objects.filter(departure_time__range=(departure_datetime, next_date))
+        # print(departure_buses)
+
+        return departure_buses
 
 
 

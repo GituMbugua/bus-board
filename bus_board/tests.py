@@ -257,19 +257,19 @@ class ScheduleTestClass(TestCase):
         self.test_bus.save()
 
         # Create instance of Schedule class
-        depature_date = date(2018, 10, 19)
+        departure_date = date(2018, 10, 19)
 
         arrival_date = date(2018, 10, 19)
 
-        depature_time_input = time(10, 15, 00, 127325, tzinfo=timezone.get_current_timezone())
+        departure_time_input = time(10, 45, 00, 000000 ,tzinfo=timezone.get_current_timezone())
 
-        arrival_time_input = time(18, 30 , 00, 423063, tzinfo=timezone.get_current_timezone())
+        arrival_time_input = time( 19, 00, 00, 231245 ,tzinfo=timezone.get_current_timezone())
 
-        depature_datetime = datetime.combine(depature_date, depature_time_input )
+        departure_datetime = datetime.combine(departure_date, departure_time_input )
 
         arrival_datetime = datetime.combine(arrival_date, arrival_time_input )
 
-        self.new_schedule = Schedule(departure_time=depature_datetime, arrival_time=arrival_datetime, bus=self.test_bus)
+        self.new_schedule = Schedule(departure_time=departure_datetime, arrival_time=arrival_datetime, bus=self.test_bus)
 
     def test_instance(self):
         '''
@@ -283,19 +283,19 @@ class ScheduleTestClass(TestCase):
         '''
         self.new_schedule.save()
 
-        another_depature_date = date(2018, 11, 19)
+        another_departure_date = date(2018, 11, 19)
 
         another_arrival_date = date(2018, 11, 19)
 
-        another_depature_time_input = time(9, 00, 00, 127325, tzinfo=timezone.get_current_timezone())
+        another_departure_time_input = time( 9, 45, 00, 786956 ,tzinfo=timezone.get_current_timezone())
 
-        another_arrival_time_input = time(17, 15 , 00, 423063, tzinfo=timezone.get_current_timezone())
+        another_arrival_time_input = time(18, 00, 00, 876578, tzinfo=timezone.get_current_timezone())
 
-        another_depature_datetime = datetime.combine(another_depature_date, another_depature_time_input )
+        another_departure_datetime = datetime.combine(another_departure_date, another_departure_time_input )
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_depature_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
 
         self.test_schedule.save()
 
@@ -311,19 +311,19 @@ class ScheduleTestClass(TestCase):
         '''
         self.new_schedule.save()
 
-        another_depature_date = date(2018, 11, 19)
+        another_departure_date = date(2018, 11, 19)
 
         another_arrival_date = date(2018, 11, 19)
 
-        another_depature_time_input = time(9, 00, 00, 127325, tzinfo=timezone.get_current_timezone())
+        another_departure_time_input = time(9, 45, 00, 786956 ,tzinfo=timezone.get_current_timezone())
 
-        another_arrival_time_input = time(17, 15 , 00, 423063, tzinfo=timezone.get_current_timezone())
+        another_arrival_time_input = time(18, 00, 00, 876578, tzinfo=timezone.get_current_timezone())
 
-        another_depature_datetime = datetime.combine(another_depature_date, another_depature_time_input )
+        another_departure_datetime = datetime.combine(another_departure_date, another_departure_time_input )
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_depature_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
 
         self.test_schedule.save()
 
@@ -343,35 +343,35 @@ class ScheduleTestClass(TestCase):
 
         self.another_bus.save()
 
-        another_depature_date = date(2018, 11, 19)
+        another_departure_date = date(2018, 11, 19)
 
         another_arrival_date = date(2018, 11, 19)
 
-        another_depature_time_input = time(9, 00, 00, 127325, tzinfo=timezone.get_current_timezone())
+        another_departure_time_input = time(9, 45, 00, 786956 ,tzinfo=timezone.get_current_timezone())
 
-        another_arrival_time_input = time(17, 15 , 00, 423063, tzinfo=timezone.get_current_timezone())
+        another_arrival_time_input = time(18, 00, 00, 876578, tzinfo=timezone.get_current_timezone())
 
-        another_depature_datetime = datetime.combine(another_depature_date, another_depature_time_input )
+        another_departure_datetime = datetime.combine(another_departure_date, another_departure_time_input )
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_depature_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
 
         self.test_schedule.save()
 
-        different_depature_date = date(2018, 9, 19)
+        different_departure_date = date(2018, 9, 19)
 
         different_arrival_date = date(2018, 9, 19)
 
-        different_depature_time_input = time(11, 45, 00, 127325, tzinfo=timezone.get_current_timezone())
+        different_departure_time_input = time(11, 45, 00, 127325, tzinfo=timezone.get_current_timezone())
 
         different_arrival_time_input = time(18, 00 , 00, 423063, tzinfo=timezone.get_current_timezone())
 
-        different_depature_datetime = datetime.combine(different_depature_date, different_depature_time_input )
+        different_departure_datetime = datetime.combine(different_departure_date, different_departure_time_input )
 
         different_arrival_datetime = datetime.combine(different_arrival_date, different_arrival_time_input )
 
-        self.test_schedule2 = Schedule(departure_time=different_depature_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus)
+        self.test_schedule2 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus)
 
         self.test_schedule2.save()
 
@@ -387,19 +387,19 @@ class ScheduleTestClass(TestCase):
         '''
         self.new_schedule.save()
 
-        another_depature_date = date(2018, 11, 19)
+        another_departure_date = date(2018, 11, 19)
 
         another_arrival_date = date(2018, 11, 19)
 
-        another_depature_time_input = time(9, 00, 00, 127325, tzinfo=timezone.get_current_timezone())
+        another_departure_time_input = time(9, 45, 00, 786956, tzinfo=timezone.get_current_timezone())
 
-        another_arrival_time_input = time(17, 15 , 00, 423063, tzinfo=timezone.get_current_timezone())
+        another_arrival_time_input = time(18, 00, 00, 876578, tzinfo=timezone.get_current_timezone())
 
-        another_depature_datetime = datetime.combine(another_depature_date, another_depature_time_input )
+        another_departure_datetime = datetime.combine(another_departure_date, another_departure_time_input )
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_depature_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
 
         self.test_schedule.save()
 
@@ -410,6 +410,61 @@ class ScheduleTestClass(TestCase):
         gotten_travel_estimation = Schedule.get_travel_estimation(self.test_schedule.id)
         
         self.assertTrue( gotten_travel_estimation == travel_estimation )
+
+    def test_get_departure_buses(self):
+        '''
+        Test case to check if schedules with the specific departure date are gotten from the database
+        '''
+        self.new_schedule.save()
+
+        self.another_bus = Bus(bus_organisation=self.test_bus_organisation, number_plate='KCA 907L', route=self.test_route, capacity=44 )
+
+        self.another_bus.save()
+
+        another_departure_date = date(2018, 11, 19)
+
+        another_arrival_date = date(2018, 11, 19)
+
+        another_departure_time_input = time(9, 45, 00, 786956, tzinfo=timezone.get_current_timezone())
+
+        another_arrival_time_input = time(18, 00, 00, 876578, tzinfo=timezone.get_current_timezone())
+
+        another_departure_datetime = datetime.combine(another_departure_date, another_departure_time_input )
+
+        another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
+
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+
+        self.test_schedule.save()
+
+        self.test_schedule2 = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.another_bus)
+
+        self.test_schedule2.save()
+
+        different_departure_date = date(2018, 11, 19)
+
+        different_arrival_date = date(2018, 11, 19)
+
+        different_departure_time_input = time(23, 59, 59, 127325, tzinfo=timezone.get_current_timezone())
+
+        different_arrival_time_input = time(16, 45 , 00, 423063, tzinfo=timezone.get_current_timezone())
+
+        different_departure_datetime = datetime.combine(different_departure_date, different_departure_time_input )
+
+        different_arrival_datetime = datetime.combine(different_arrival_date, different_arrival_time_input )
+
+        self.test_schedule3 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus)
+
+        self.test_schedule3.save()
+
+        gotten_departure_buses = Schedule.get_departure_buses(another_departure_date)
+
+        schedules = Schedule.objects.all()
+        
+        self.assertTrue( len(gotten_departure_buses) != len(schedules) )
+
+
+
 
 
 
