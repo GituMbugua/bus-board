@@ -102,6 +102,31 @@ class RouteTestClass(TestCase):
         
         self.assertTrue( isinstance(gotten_route, Route))
 
+    def test_get_search_route(self):
+        '''
+        Test to check if the route with the specified depature and arrival locations is gotten from the database
+        '''
+        self.new_route.save()
+
+        self.test_route = Route(departure_location='Naivasha', destination_location='Nairobi')
+
+        self.test_route.save()
+
+        self.test_route2 = Route(departure_location='Naivasha', destination_location='Nairobi')
+
+        self.test_route2.save()
+
+        search_departure_location = 'Naivasha'
+
+        search_destination_location = 'Nairobi'
+
+        gotten_route = Route.get_search_route(search_departure_location, search_destination_location)
+
+        # routes = Route.objects.all()
+        
+        self.assertTrue( isinstance(gotten_route, Route))
+
+
 class BusTestClass(TestCase):
     '''
     Test case for the Bus class

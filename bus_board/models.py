@@ -79,6 +79,41 @@ class Route(models.Model):
 
         return single_route
 
+    @classmethod
+    def get_search_route(cls, search_departure_location, search_arrival_loaction):
+        '''
+        Functiont to get a bus route with the given departure location and arrival location
+
+        Args
+            search_departure_location : the departure location
+
+            search_arrival_loaction : the arrival location
+
+        Return
+            requested_route : Route object with the same departure location and destination location as the searched departure location and arrival location
+        '''
+
+        found_routes = cls.objects.filter(departure_location=search_departure_location).filter(destination_location=search_arrival_loaction)
+
+        existing_routes = cls.objects.all()
+
+        # Get each existing route
+        for existing_route in existing_routes:
+
+            # Get each found route
+            for found_route in found_routes:
+
+                if existing_route == found_route:
+
+                     return found_route
+
+                # Otherwise
+                else:
+
+                    continue
+        return None
+
+
 class Bus(models.Model):
     '''
     Class to define a bus 
