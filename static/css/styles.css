@@ -71,16 +71,36 @@ body{
 
 .route{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .text-xl {
   font-size: 1.9em;
   font-weight: 700;
 }
+/* search form */
 .input-search-bar{
+  width:100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
+.form-input, .btn-update {
+  height: 52px;
+}
+.large-5{
+  /* width: 41.6666666667%; */
+}
+
+.btn-update{
+}
+.input-group {
+  width: 100%;
+}
+.input-group input {
+  width: 30%;
+  border: none;
+  border-radius: 3px;
+}
+
 /***************************************************************************************
 results section
 *********************************************************************/
@@ -147,4 +167,18 @@ ul {
   margin-top: 10px;
   background: #fff;
   height: 100px;
+}
+
+.stuff{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+#bus{
+  /* width: 30%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: flex-start; */
+  margin: 0
 }
