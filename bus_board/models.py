@@ -79,6 +79,41 @@ class Route(models.Model):
 
         return single_route
 
+    @classmethod
+    def get_search_route(cls, search_departure_location, search_arrival_loaction):
+        '''
+        Functiont to get a bus route with the given departure location and arrival location
+
+        Args
+            search_departure_location : the departure location
+
+            search_arrival_loaction : the arrival location
+
+        Return
+            requested_route : Route object with the same departure location and destination location as the searched departure location and arrival location
+        '''
+
+        found_routes = cls.objects.filter(departure_location=search_departure_location).filter(destination_location=search_arrival_loaction)
+
+        existing_routes = cls.objects.all()
+
+        # Get each existing route
+        for existing_route in existing_routes:
+
+            # Get each found route
+            for found_route in found_routes:
+
+                if existing_route == found_route:
+
+                     return found_route
+
+                # Otherwise
+                else:
+
+                    continue
+        return None
+
+
 class Bus(models.Model):
     '''
     Class to define a bus 
@@ -226,12 +261,13 @@ class Schedule(models.Model):
         return travel_estimation
 
     @classmethod
-    def get_departure_buses(cls, departure_date):
+    def get_departure_buses(cls, departure_date, route_id):
         '''
-        Function to get schedules with the specific departure date
+        Function to get schedules with the specific departure date and using a specific route
 
         Args
             departure_date : the departure date
+            route_id : the bus route
 
         Return
             departure_buses : list of all the Schedule objects in the database with the specific departure date
@@ -243,8 +279,18 @@ class Schedule(models.Model):
         # print(next_date)
 
         # Get allschedules in the 24 hour period
-        departure_buses = cls.objects.filter(departure_time__range=(departure_datetime, next_date))
-        # print(departure_buses)
+        found_buses = cls.objects.filter(departure_time__range=(departure_datetime, next_date))
+
+        # List of buses departing
+        departure_buses = []
+
+        for found_bus in found_buses:
+            # Check if route id is the same
+
+            if found_bus.bus.route.id == route_id:
+
+                departure_buses.append(found_bus)
+                continue
 
         return departure_buses
 

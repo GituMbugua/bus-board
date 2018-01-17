@@ -102,6 +102,31 @@ class RouteTestClass(TestCase):
         
         self.assertTrue( isinstance(gotten_route, Route))
 
+    def test_get_search_route(self):
+        '''
+        Test to check if the route with the specified depature and arrival locations is gotten from the database
+        '''
+        self.new_route.save()
+
+        self.test_route = Route(departure_location='Naivasha', destination_location='Nairobi')
+
+        self.test_route.save()
+
+        self.test_route2 = Route(departure_location='Naivasha', destination_location='Nairobi')
+
+        self.test_route2.save()
+
+        search_departure_location = 'Naivasha'
+
+        search_destination_location = 'Nairobi'
+
+        gotten_route = Route.get_search_route(search_departure_location, search_destination_location)
+
+        # routes = Route.objects.all()
+        
+        self.assertTrue( isinstance(gotten_route, Route))
+
+
 class BusTestClass(TestCase):
     '''
     Test case for the Bus class
@@ -417,10 +442,22 @@ class ScheduleTestClass(TestCase):
         '''
         self.new_schedule.save()
 
+        # Create instance of Bus class
         self.another_bus = Bus(bus_organisation=self.test_bus_organisation, number_plate='KCA 907L', route=self.test_route, capacity=44 )
 
         self.another_bus.save()
 
+        # Create instance of Route class
+        self.another_route = Route(departure_location='Nairobi', destination_location='Mombasa')
+
+        self.another_route.save()
+
+        # Create another instance of Bus class
+        self.diffent_bus = Bus(bus_organisation=self.test_bus_organisation, number_plate='KCA 907L', route=self.another_route, capacity=44 )
+
+        self.diffent_bus.save()
+
+        # Create new departure and arrival date
         another_departure_date = date(2018, 11, 19)
 
         another_arrival_date = date(2018, 11, 19)
@@ -433,14 +470,17 @@ class ScheduleTestClass(TestCase):
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
+        # Create new schedule
         self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
 
         self.test_schedule.save()
 
+        # Create another schedule
         self.test_schedule2 = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.another_bus)
 
         self.test_schedule2.save()
 
+        # Create another departure and arrival date
         different_departure_date = date(2018, 11, 19)
 
         different_arrival_date = date(2018, 11, 19)
@@ -453,11 +493,12 @@ class ScheduleTestClass(TestCase):
 
         different_arrival_datetime = datetime.combine(different_arrival_date, different_arrival_time_input )
 
-        self.test_schedule3 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus)
+        # Create another schedule
+        self.test_schedule3 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.diffent_bus)
 
         self.test_schedule3.save()
 
-        gotten_departure_buses = Schedule.get_departure_buses(another_departure_date)
+        gotten_departure_buses = Schedule.get_departure_buses(another_departure_date, self.test_route.id)
 
         schedules = Schedule.objects.all()
         
