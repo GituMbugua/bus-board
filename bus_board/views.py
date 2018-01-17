@@ -16,41 +16,38 @@ def search_results(request):
 
         # Get the input departure
         search_departure_location = request.GET.get('depature-location')
-        # print('Searched departure location:')
-        # print(search_departure_location)
-        # print('<><><><><><><>')
 
         # Get the input arrival location
         search_arrival_location = request.GET.get('arrival-location')
-        # print('Searched arrival location:')
-        # print(search_arrival_location)
-        # print('<><><><><><><>')
 
         # Get the input date
         travel_date = request.GET.get('travel-date')
 
         # Convert string input to date type
         convert_to_date = datetime.strptime(travel_date, '%Y-%m-%d').date()
-        # print('Searched date:')
-        # print(travel_date)
-        # print('<><><><><><><>')
 
         # Get the route 
         result_route = Route.get_search_route(search_departure_location,search_arrival_location)
 
-        # Schedule with the same depature date
-        schedule_with_depature_date = Schedule.get_departure_buses(convert_to_date)
+        # Check if route exists found
+        if result_route != None :
+            print(result_route.id)
 
-        # Check if route and schedule is found
-        if result_route != None and len(schedule_with_depature_date) != 0 :
+            # Schedule with the same depature date
+            schedule_with_depature_date = Schedule.get_departure_buses(convert_to_date, result_route.id)
 
-            # Buses on the route
-            route_buses = Bus.get_route_buses(result_route.id)
+            if len(schedule_with_depature_date) > 0:
 
-            print(schedule_with_depature_date)
+                print(schedule_with_depature_date)
+
+            else:
+
+                print('No schedule buses')
 
         # Otherwise
         else:
             print('Not route found')
 
-    return render(request, 'search.html')
+    title = 'Result'
+
+    return render(request, 'search.html', {'title':title, 'result_route':result_route})
