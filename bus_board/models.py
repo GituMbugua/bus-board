@@ -261,12 +261,13 @@ class Schedule(models.Model):
         return travel_estimation
 
     @classmethod
-    def get_departure_buses(cls, departure_date):
+    def get_departure_buses(cls, departure_date, route_id):
         '''
-        Function to get schedules with the specific departure date
+        Function to get schedules with the specific departure date and using a specific route
 
         Args
             departure_date : the departure date
+            route_id : the bus route
 
         Return
             departure_buses : list of all the Schedule objects in the database with the specific departure date
@@ -278,8 +279,18 @@ class Schedule(models.Model):
         # print(next_date)
 
         # Get allschedules in the 24 hour period
-        departure_buses = cls.objects.filter(departure_time__range=(departure_datetime, next_date))
-        # print(departure_buses)
+        found_buses = cls.objects.filter(departure_time__range=(departure_datetime, next_date))
+
+        # List of buses departing
+        departure_buses = []
+
+        for found_bus in found_buses:
+            # Check if route id is the same
+
+            if found_bus.bus.route.id == route_id:
+
+                departure_buses.append(found_bus)
+                continue
 
         return departure_buses
 
