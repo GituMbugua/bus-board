@@ -98,7 +98,8 @@ results section
   flex-flow: row wrap;
   align-items: center;
   padding-top: 5px !important;
-  margin-top: 5px
+  margin-top: 5px;
+  padding-left:10px;
 }
 
 ul {
@@ -107,7 +108,7 @@ ul {
 }
 
 .cat .bus-companies{
-  flex: 2;
+  flex: 1;
 }
 
 .cat .departure{
@@ -146,10 +147,12 @@ ul {
   height: 100px;
 }
 
-.stuff{
+.departure-card{
   display: flex;
   align-items: flex-start;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 #bus{
@@ -157,5 +160,32 @@ ul {
   /* display: flex; */
   /* flex-direction: column; */
   /* justify-content: flex-start; */
-  margin: 0
+  flex:1;
 }
+
+#departure{
+  flex:1;
+}
+
+#duration{
+  flex: 1
+}
+
+#seats{
+  flex: 1;
+}
+
+
+#price{
+  flex: 1
+}
+
+.departure-card-footer{
+  border-top: 1px solid #dbdbdb;
+  margin-top: 35px;
+  border-right: 1px solid #dbdbdb;
+  border-radius: 0 0 0 4px;
+  overflow: visible;
+  
+}
+
