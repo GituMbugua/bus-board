@@ -27,8 +27,14 @@ body{
 *************************************************************************************/
 /* search section */
 .search {
-  background: rgba(0, 255, 255, 0.561);
+  background: url('../img/road_trip.jpg') no-repeat;
+  background-size: cover;
+  background-position-y: 20%;
   height: 400px;
+}
+.search-overlay {
+  height: inherit;
+  /* background: rgba(0, 255, 255, 0.3); */
 }
 /* end */
 

@@ -5,8 +5,26 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row search">
-
+            <div class="search-overlay">
+                <div class="container">
+                    <!-- search form -->
+                    <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+                        <div class="column column-inline large-5">
+                            <div class=" form-group input-search-bar ">
+                                <div class="input-group ">
+                                    <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location">
+                                    <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location">
+                                    <input type="date" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date">
+                                    <button class="btn btn-success">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- search form end -->
+                </div>
+            </div>
         </div>
+
         <div class="row featured">
             <div class="container">
                     <h1>Featured Bus Routes</h1>
