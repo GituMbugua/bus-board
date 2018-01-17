@@ -202,6 +202,12 @@ class Schedule(models.Model):
     def __str__(self):
         return self.bus.bus_organisation.name + ' Bus No.' + str(self.bus.id) + ' Schedule No.' + str(self.id)
 
+    class Meta:
+        '''
+        Order schedules with most cheapest at the top
+        '''
+        ordering = ['price']
+
     @classmethod
     def get_schedules(cls):
         '''
