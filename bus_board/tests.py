@@ -1,7 +1,8 @@
 from django.test import TestCase
-from .models import BusOrganisation, Route, Bus, Schedule
+from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date, time
 from django.utils import timezone
+import uuid
 
 # Create your tests here.
 class BusOrganisationTestClass(TestCase):
@@ -504,12 +505,89 @@ class ScheduleTestClass(TestCase):
         
         self.assertTrue( len(gotten_departure_buses) != len(schedules) )
 
+class TicketTestClass(TestCase):
+    '''
+    Test case for the Ticket class
+    '''
+    def setUp(self):
+        # Create instance of Bus Organisation
+        self.test_bus_organisation = BusOrganisation(name='Kiki And Son Ltd')
+
+        self.test_bus_organisation.save()
+
+        # Create instance of Route class
+        self.test_route = Route(departure_location='Nairobi', destination_location='Mombasa')
+
+        self.test_route.save()
+
+        # Create instance of Bus class
+        self.test_bus = Bus(bus_organisation=self.test_bus_organisation, number_plate='KBC 243J', route=self.test_route, capacity=34 )
+
+        self.test_bus.save()
+
+        # Create instance of Schedule class
+        departure_date = date(2018, 10, 19)
+
+        arrival_date = date(2018, 10, 19)
+
+        departure_time_input = time(10, 45, 00, 000000 ,tzinfo=timezone.get_current_timezone())
+
+        arrival_time_input = time( 19, 00, 00, 231245 ,tzinfo=timezone.get_current_timezone())
+
+        departure_datetime = datetime.combine(departure_date, departure_time_input )
+
+        arrival_datetime = datetime.combine(arrival_date, arrival_time_input )
+
+        self.test_schedule = Schedule(departure_time=departure_datetime, arrival_time=arrival_datetime, bus=self.test_bus)
+
+        self.test_schedule.save()
+
+        # Generate uuid
+        self.test_uuid = uuid.uuid4()
+
+        # Create instance of Ticket class
+        self.new_ticket = Ticket(first_name = 'Charles', last_name = 'Kakai', email = 'charles@kakai.com', schedule = self.test_schedule, phone_number = '+254728654145', ticket_number = self.test_uuid, transaction_code = 'HG545JHAGHG5')
 
 
+    def test_instance(self):
+        '''
+        Test case to check if self.new_ticket in an instance of Ticket class
+        '''
+        self.assertTrue( isinstance(self.new_ticket, Ticket) )
 
+    def test_get_tickets(self):
+        '''
+        Test to check if all bus tickets are gotten from the database
+        '''
+        self.new_ticket.save()
 
+        self.another_uuid = uuid.uuid4()
 
+        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '+254720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
 
+        self.test_ticket.save()
 
+        gotten_tickets = Ticket.get_tickets()
 
+        tickets = Ticket.objects.all()
+
+        self.assertTrue( len(gotten_tickets) == len(tickets) )
+
+    def test_get_single_ticket(self):
+        '''
+        Test to check if the specified bus ticket is gotten from the database
+        '''
+        self.new_ticket.save()
+
+        self.another_uuid = uuid.uuid4()
+
+        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '+254720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
+
+        self.test_ticket.save()
+
+        gotten_ticket = Ticket.get_single_ticket(self.new_ticket.id)
+
+        # tickets = Ticket.objects.all()
+        
+        self.assertTrue( isinstance(gotten_ticket, Ticket))
 
