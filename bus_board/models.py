@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime, date, time, timedelta
 from django.utils import timezone
+from decimal import Decimal
 
 # Create your models here.
 class BusOrganisation(models.Model):
@@ -196,8 +197,16 @@ class Schedule(models.Model):
 
     bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
 
+    price = models.DecimalField(max_digits=15 ,decimal_places=2, default=Decimal(0.00))
+
     def __str__(self):
         return self.bus.bus_organisation.name + ' Bus No.' + str(self.bus.id) + ' Schedule No.' + str(self.id)
+
+    class Meta:
+        '''
+        Order schedules with most cheapest at the top
+        '''
+        ordering = ['price']
 
     @classmethod
     def get_schedules(cls):
