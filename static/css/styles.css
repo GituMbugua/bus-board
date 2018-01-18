@@ -9,11 +9,13 @@ html {
 body{
   background: #EBF2F7;
   font-size: 1.6em;
+  font-family: Open Sans, sans-serif;
 }
 
 /* navbar */
 .navbar {
   background: transparent;
+  position: static;
   border: none;
   margin-bottom: 0;
 }
@@ -27,14 +29,20 @@ body{
 *************************************************************************************/
 /* search section */
 .search {
-  background: url('../img/road_trip.jpg') no-repeat;
+  background-color: #127ccb;
   background-size: cover;
   background-position-y: 20%;
   height: 400px;
 }
 .search-overlay {
   height: inherit;
-  /* background: rgba(0, 255, 255, 0.3); */
+}
+.home-search-container {
+  margin-top: 10%;
+  color: white;
+}
+.home-search-container h1 {
+  margin: 3% 0 3% 0;
 }
 /* end */
 
@@ -73,11 +81,17 @@ body{
   background-color: #127ccb;
   color: #fff;
   padding: 23px 19px;
+  height: 300px;
 }
-
-.route{
+.route-update {
+  height: max-content;
+  margin: auto; 
+}
+.route {
   display: flex;
   justify-content: space-between;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .text-xl {
   font-size: 1.9em;
@@ -85,7 +99,7 @@ body{
 }
 /* search form */
 .input-search-bar{
-  width:100%;
+  width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -93,20 +107,28 @@ body{
   height: 52px;
   color: #000;
 }
-.large-5{
-  /* width: 41.6666666667%; */
+.route-update {
+  margin-top: 3%;
 }
 
-.btn-update{
-}
+
 .input-group {
   width: 100%;
+  display: block;
 }
 .input-group input {
   width: 30%;
   border: none;
   border-radius: 3px;
 }
+.input-group .form-control {
+  width: 28%;
+}
+.route-button {
+  width: 100%;
+  height: 52px;
+}
+/* end */
 
 /***************************************************************************************
 results section
@@ -127,9 +149,9 @@ results section
   justify-content: space-between;
   flex-flow: row wrap;
   align-items: center;
-  padding-top: 5px !important;
   margin-top: 5px;
-  padding-left:10px;
+  padding-left: 10px;
+  font-size: 15px;
 }
 
 ul {
@@ -174,15 +196,26 @@ ul {
   border-radius: 2px;
   margin-top: 10px;
   background: #fff;
-  height: 100px;
+  height: 125px;
 }
 
-.departure-card{
+.departure-card {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   padding-left: 10px;
   padding-top: 10px;
+  height: 70%;
+}
+
+.departure-row .col-md-9 {
+  padding-left: 0;
+  padding-right: 0; 
+  height: 30%;
+}
+
+.departure-row .col-md-3 {
+  padding: 0;
 }
 
 #bus{
@@ -212,10 +245,15 @@ ul {
 
 .departure-card-footer{
   border-top: 1px solid #dbdbdb;
-  margin-top: 35px;
   border-right: 1px solid #dbdbdb;
   border-radius: 0 0 0 4px;
   overflow: visible;
-  
+  padding-bottom: 1px;
+}
+.search-button {
+  width: 100.5%;
+  border-radius: 0 0 3px 0;
+  display: block;
+  height: 37px;
 }
 

@@ -4,36 +4,44 @@
 {% block content %}
 <div class="container-fluid hero-primary">
 
-  <div class="row">
+  <div class="row route-update">
   
         <div class="container">
 
           <div class="route">
             <div class="text-xl">
-              <span>Nairobi</span>
+              <span>{{search_departure_location}}</span>
               <span><i class="fa fa-long-arrow-right"></i></span>
-              <span>Eldoret</span>
+              <span>{{search_arrival_location}}</span>
             </div>
-            <div class="text-xl">Mon, Jan 15</div>
+            <div class="text-xl">{{convert_to_date}}</div>
           </div>
           
           <!-- search form -->
           <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+
               <div class="column column-inline large-5">
+
                   <div class=" form-group input-search-bar ">
+
                     <div class="input-group ">
 
-                      <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location" required>
+                      <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location" required>
 
-                      <input type="text" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location" required>
+                      <input type="text" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location" required>
 
-                      <input type="date" class="form-input" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date" required>
+                      <input type="date" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date" required>
 
-                      <button class="btn btn-success" type="submit"> Update</button>
+                      <div class="input-group-btn">
+                          <button class="btn btn-success route-button" type="submit">Update</button>
+                      </div>
                       
                     </div>
+
                   </div>
+
               </div>
+
           </form>
           <!-- search form end -->
         </div>
@@ -44,15 +52,31 @@
 <div class="container-fluid">
 
   <div class="row results">
+
     <div class="container">
       
       {% if buses %}
-      <span>buses found </span>
-      {% else %}
-      <span>0 buses found</span>
+
+      <span> {{buses|length}} buses found </span>
+
       {% endif %}
+
+      {% if no_scheduled_bus_message %}
+
+      <span>{{no_scheduled_bus_message}}</span>
+
+      {% endif %}
+
+      {% if no_route_message %}
+
+      <span>{{no_route_message}}</span>
+
+      {% endif %}
+
     </div>
+
   </div>
+
 </div>
 
 <div class="container-fluid scheduleBar">
@@ -60,7 +84,6 @@
     <div class="container">
 
       <ul class="cat">
-        
         <li class="bus-companies">Bus Companies</li>
         
         <li class="departure">Departure</li>
@@ -71,6 +94,7 @@
         
         <li class="price">Price</li>
       </ul>
+
     </div>
   </div>
 
@@ -81,27 +105,32 @@
     <div class="container">
 
       <ul class="res">
+
+        {% for bus in buses%}
         <li class="single-items">
           <div class="departure-card">
-              <section id="bus">Jonny and sons</section>
-              <section id="departure">7.00am</section>
-              <section id="duration">10hrs</section>
-              <section id="seats">30</section>
-              <section id="price">Kes 500</section>
+              <section id="bus">{{bus.bus.bus_organisation}}</section>
+              <section id="departure">{{bus.departure_time | date:"g:i a"}}</section>
+              <section id="duration">{{estimation_duration}}</section>
+              <section id="seats">{{bus.bus.capacity}}</section>
+              <section id="price">Kes {{bus.price}}</section>
           </div>
           <div class="container-fluid">
 
-            <div class="row">
-              <div class="col-md-9">
+            <div class="row departure-row">
+              <div class="col-md-9 col-lg-9">
               <div class="departure-card-footer">
-                  
+                  <h5>This is just a test</h5>
                 </div>
               </div>
-              <div class="col-md-3"></div>
+              <div class="col-md-3 col-lg-3">
+                <button class="btn btn-warning search-button">Select</button>
+              </div>
             </div>
           </div>
           <!-- <hr> -->
         </li>
+        {% endfor %}
       </ul>
     </div>
   </div>

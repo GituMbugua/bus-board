@@ -127,7 +127,6 @@ class RouteTestClass(TestCase):
         
         self.assertTrue( isinstance(gotten_route, Route))
 
-
 class BusTestClass(TestCase):
     '''
     Test case for the Bus class
@@ -295,7 +294,7 @@ class ScheduleTestClass(TestCase):
 
         arrival_datetime = datetime.combine(arrival_date, arrival_time_input )
 
-        self.new_schedule = Schedule(departure_time=departure_datetime, arrival_time=arrival_datetime, bus=self.test_bus)
+        self.new_schedule = Schedule(departure_time=departure_datetime, arrival_time=arrival_datetime, bus=self.test_bus, price=500.00)
 
     def test_instance(self):
         '''
@@ -321,7 +320,7 @@ class ScheduleTestClass(TestCase):
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus, price=450.00)
 
         self.test_schedule.save()
 
@@ -349,7 +348,7 @@ class ScheduleTestClass(TestCase):
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus, price=450.00)
 
         self.test_schedule.save()
 
@@ -381,7 +380,7 @@ class ScheduleTestClass(TestCase):
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus, price=450.00)
 
         self.test_schedule.save()
 
@@ -397,7 +396,7 @@ class ScheduleTestClass(TestCase):
 
         different_arrival_datetime = datetime.combine(different_arrival_date, different_arrival_time_input )
 
-        self.test_schedule2 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus)
+        self.test_schedule2 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.another_bus, price=480.00)
 
         self.test_schedule2.save()
 
@@ -425,7 +424,7 @@ class ScheduleTestClass(TestCase):
 
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
-        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus, price=450.00)
 
         self.test_schedule.save()
 
@@ -472,12 +471,12 @@ class ScheduleTestClass(TestCase):
         another_arrival_datetime = datetime.combine(another_arrival_date, another_arrival_time_input )
 
         # Create new schedule
-        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus)
+        self.test_schedule = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.test_bus, price=450.00)
 
         self.test_schedule.save()
 
         # Create another schedule
-        self.test_schedule2 = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.another_bus)
+        self.test_schedule2 = Schedule(departure_time=another_departure_datetime, arrival_time=another_arrival_datetime, bus=self.another_bus, price=480.00)
 
         self.test_schedule2.save()
 
@@ -495,7 +494,7 @@ class ScheduleTestClass(TestCase):
         different_arrival_datetime = datetime.combine(different_arrival_date, different_arrival_time_input )
 
         # Create another schedule
-        self.test_schedule3 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.diffent_bus)
+        self.test_schedule3 = Schedule(departure_time=different_departure_datetime, arrival_time=different_arrival_datetime, bus=self.diffent_bus, price=425.00)
 
         self.test_schedule3.save()
 

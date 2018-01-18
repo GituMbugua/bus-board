@@ -12,13 +12,16 @@ def search_results(request):
     '''
     View function to get the the requested departure and arrival locations from the database and display to the user
     '''
+
+    title = 'Result'
+
     if ('depature-location' in request.GET and request.GET['depature-location']) and ('arrival-location' in request.GET and request.GET['arrival-location']) and ('travel-date' in request.GET and request.GET['travel-date']):
 
         # Get the input departure
-        search_departure_location = request.GET.get('depature-location')
+        search_departure_location = request.GET.get('depature-location').title()
 
         # Get the input arrival location
-        search_arrival_location = request.GET.get('arrival-location')
+        search_arrival_location = request.GET.get('arrival-location').title()
 
         # Get the input date
         travel_date = request.GET.get('travel-date')
@@ -38,16 +41,21 @@ def search_results(request):
 
             if len(schedule_with_depature_date) > 0:
 
-                print(schedule_with_depature_date)
+                for schedule in schedule_with_depature_date:
+
+                    estimation_duration = Schedule.get_travel_estimation(schedule.id)
+
+                return render(request, 'search.html', {'title':title, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date, 'buses':schedule_with_depature_date, 'estimation_duration':estimation_duration})
 
             else:
+                no_scheduled_bus_message = 'No scheduled buses'
 
-                print('No schedule buses')
+                return render(request, 'search.html', {'title':title, 'no_scheduled_bus_message':no_scheduled_bus_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
 
         # Otherwise
         else:
-            print('Not route found')
+            
+            no_route_message = 'Bus route not found'
 
-    title = 'Result'
+            return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
 
-    return render(request, 'search.html', {'title':title, 'result_route':result_route})

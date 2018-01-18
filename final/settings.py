@@ -87,8 +87,8 @@ DATABASES = {
         # 'PASSWORD': 'sqlpass',
         # 'USER': 'carol',
         # 'PASSWORD': 'carol1',
-		# 'USER': 'puppah'
-		# 'PASSWORD': 'zanpakutou'
+		# 'USER': 'puppah',
+		# 'PASSWORD': 'zanpakutou',
     }
 }
 
