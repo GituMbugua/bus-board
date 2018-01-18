@@ -14,13 +14,19 @@ body{
 
 /* navbar */
 .navbar {
-  background: #0f7dd1;
+  background: #0071c7;
   position: static;
   border: none;
   margin-bottom: 0;
 }
 .navbar-default{
   margin: 0;
+}
+.navbar-brand h4 {
+  color: white;
+}
+.navbar-inverse .navbar-collapse h4 {
+  color: white;
 }
 /* end navbar */
 
