@@ -15,6 +15,7 @@ body{
 /* navbar */
 .navbar {
   background: transparent;
+  position: static;
   border: none;
   margin-bottom: 0;
 }
@@ -28,14 +29,20 @@ body{
 *************************************************************************************/
 /* search section */
 .search {
-  background: url('../img/road_trip.jpg') no-repeat;
+  background-color: #127ccb;
   background-size: cover;
   background-position-y: 20%;
   height: 400px;
 }
 .search-overlay {
   height: inherit;
-  /* background: rgba(0, 255, 255, 0.3); */
+}
+.home-search-container {
+  margin-top: 10%;
+  color: white;
+}
+.home-search-container h1 {
+  margin: 3% 0 3% 0;
 }
 /* end */
 
@@ -74,11 +81,17 @@ body{
   background-color: #127ccb;
   color: #fff;
   padding: 23px 19px;
+  height: 300px;
 }
-
-.route{
+.route-update {
+  height: max-content;
+  margin: auto; 
+}
+.route {
   display: flex;
   justify-content: space-between;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .text-xl {
   font-size: 1.9em;
@@ -94,6 +107,9 @@ body{
   height: 52px;
   color: #000;
 }
+.route-update {
+  margin-top: 3%;
+}
 
 
 .input-group {
@@ -108,7 +124,7 @@ body{
 .input-group .form-control {
   width: 28%;
 }
-.update-button {
+.route-button {
   width: 100%;
   height: 52px;
 }

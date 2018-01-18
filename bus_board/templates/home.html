@@ -7,22 +7,25 @@
         <div class="row search">
             <div class="search-overlay">
                 <div class="container">
-                    <!-- search form -->
-                    <form action="{% url 'search_results' %}" class="search-form search-form-inline">
-                        <div class="column column-inline large-5">
-                            <div class=" form-group input-search-bar ">
-                                <div class="input-group ">
-                                    <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location">
-                                    <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location">
-                                    <input type="date" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-success search-button">Search</button>
+                    <div class="home-search-container">
+                        <h1>Search Bus Tickets the Easiest Way</h1>
+                        <!-- search form -->
+                        <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+                            <div class="column column-inline large-5">
+                                <div class=" form-group input-search-bar ">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location">
+                                        <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location">
+                                        <input type="date" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-success route-button">Search</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                    <!-- search form end -->
+                        </form>
+                        <!-- search form end -->
+                    </div>
                 </div>
             </div>
         </div>
