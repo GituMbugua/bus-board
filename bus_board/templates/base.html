@@ -25,6 +25,8 @@
     {% include 'footer.html' %}
     
     {% block scripts %}
+        <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+        <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% bootstrap_javascript %}
         <script src="{% static 'js/script.js' %}"></script>

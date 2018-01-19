@@ -1,5 +1,6 @@
 {% extends 'base.html'%}
 {% load static %}
+{% load ratings %}
 
 {% block content %}
 <div class="container-fluid hero-primary">
@@ -109,7 +110,9 @@
           {% for bus in buses %}
           <li class="single-items">
             <div class="departure-card">
-                <section id="bus">{{bus.bus.bus_organisation}}</section>
+                <section id="bus">{{bus.bus.bus_organisation}}
+                    <span>{% ratings bus.bus.bus_organisation %} </span>
+                </section>
                 <section id="departure">{{bus.departure_time | date:"g:i a"}}</section>
                 <section id="duration">{{estimation_duration}}</section>
                 <section id="seats">{{bus.bus.capacity}}</section>
@@ -121,7 +124,13 @@
 
                 <div class="col-md-9 col-lg-9">
                   <div class="departure-card-footer">
-                    <p class="toggle-details">Show Details</p>
+
+                    <!-- <a data-toggle="collapse" data-target="#{{bus.id}}" 
+                      href="#{{bus.id}}" class="toggle-details collapsed">
+                     Show Details
+                    </a> -->
+                    
+                    <!-- <p class="toggle-details">Show Details</p> -->
                   </div>
                 </div>
 
@@ -130,8 +139,8 @@
                 </div>
 
               </div>
-              <div class="collapse">
-                <p>hahaha</p>
+              <div class="collapse" id="{{bus.id}}">
+                <p class="schedule-details">hahaha</p>
               </div>
             </div>
             <!-- <hr> -->

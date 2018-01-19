@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bus_board',
     'bootstrap3',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [
@@ -67,13 +68,17 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
+                
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'final.wsgi.application'
-
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_STAR_HEIGHT =25
+STAR_RATINGS_STAR_WIDTH =25
+STAR_RATINGS_ANONYMOUS = True
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
