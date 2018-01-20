@@ -59,3 +59,14 @@ def search_results(request):
 
             return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
 
+def bus_details(request, bus_schedule_id):
+    '''
+    View function to display a form for the user to fill to get a ticket
+    '''
+    selected_bus = Schedule.get_single_schedule(bus_schedule_id)
+
+    title = f'{selected_bus.bus.bus_organisation} Schedule Details'
+
+    message = f'{selected_bus.bus.bus_organisation} Schedule Details'
+
+    return render(request, 'bus_details.html', {'title':title, 'message':message})
