@@ -111,7 +111,6 @@
           <li class="single-items">
             <div class="departure-card">
                 <section id="bus">{{bus.bus.bus_organisation}}
-                    <span>{% ratings bus.bus.bus_organisation %} </span>
                 </section>
                 <section id="departure">{{bus.departure_time | date:"g:i a"}}</section>
                 <section id="duration">{{estimation_duration}}</section>
@@ -124,7 +123,7 @@
 
                 <div class="col-md-9 col-lg-9">
                   <div class="departure-card-footer">
-
+                      <span>{% ratings bus.bus.bus_organisation %} </span>
                     <!-- <a data-toggle="collapse" data-target="#{{bus.id}}" 
                       href="#{{bus.id}}" class="toggle-details collapsed">
                      Show Details

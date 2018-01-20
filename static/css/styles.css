@@ -177,9 +177,6 @@ results section
   margin-top: 1em;
   padding-bottom: 15px
 }
-.results-page {
-  height: 100vh;
-}
 .scheduleBar .cat{
   height: 2.125em;
   background: #fff;
@@ -297,3 +294,12 @@ ul {
   height: 37px;
 }
 
+/* Style Ratings */
+.star-ratings {
+  display: inline-flex;
+  margin-left: 2%;
+}
+
+div.star-ratings-rating-user, div.star-ratings-rating-average, div.star-ratings-rating-count {
+  display: none;
+}
