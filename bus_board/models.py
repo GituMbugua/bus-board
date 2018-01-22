@@ -2,7 +2,6 @@ from django.db import models
 from datetime import datetime, date, time, timedelta
 from django.utils import timezone
 import uuid
-from phonenumber_field.modelfields import PhoneNumberField
 from decimal import Decimal
 
 # Create your models here.
@@ -319,7 +318,7 @@ class Ticket(models.Model):
     
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
 
-    phone_number = PhoneNumberField()
+    phone_number = models.CharField(max_length = 255)
 
     ticket_number = models.UUIDField(default = uuid.uuid4, editable = False)
 
@@ -327,7 +326,7 @@ class Ticket(models.Model):
 
     def __str__(self):
         
-        return self.first_name + ' ' + self.last_name + ' ' + self.ticket_number
+        return self.first_name + ' ' + self.last_name + ' ' + str(self.ticket_number)
 
     @classmethod
     def get_tickets(cls):

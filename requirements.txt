@@ -7,7 +7,6 @@ django-annoying==0.10.3
 django-bootstrap3==9.1.0
 django-braces==1.12.0
 django-model-utils==3.0.0
-django-phonenumber-field==2.0.0
 django-registration==2.3
 django-six==1.0.4
 django-star-ratings==0.5.6

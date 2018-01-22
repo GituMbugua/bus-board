@@ -545,7 +545,7 @@ class TicketTestClass(TestCase):
         self.test_uuid = uuid.uuid4()
 
         # Create instance of Ticket class
-        self.new_ticket = Ticket(first_name = 'Charles', last_name = 'Kakai', email = 'charles@kakai.com', schedule = self.test_schedule, phone_number = '+254728654145', ticket_number = self.test_uuid, transaction_code = 'HG545JHAGHG5')
+        self.new_ticket = Ticket(first_name = 'Charles', last_name = 'Kakai', email = 'charles@kakai.com', schedule = self.test_schedule, phone_number = '0728654145', ticket_number = self.test_uuid, transaction_code = 'HG545JHAGHG5')
 
 
     def test_instance(self):
@@ -562,7 +562,7 @@ class TicketTestClass(TestCase):
 
         self.another_uuid = uuid.uuid4()
 
-        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '+254720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
+        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '0720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
 
         self.test_ticket.save()
 
@@ -580,7 +580,7 @@ class TicketTestClass(TestCase):
 
         self.another_uuid = uuid.uuid4()
 
-        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '+254720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
+        self.test_ticket = Ticket(first_name = 'James', last_name = 'Mbugua', email = 'mbugua@james.com', schedule = self.test_schedule, phone_number = '0720147369', ticket_number = self.another_uuid, transaction_code = 'J6H87JHA5')
 
         self.test_ticket.save()
 
