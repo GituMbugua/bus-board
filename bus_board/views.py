@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import Http404
 from django.core.exceptions import ObjectDoesNotExist
-from .models import BusOrganisation, Route, Bus, Schedule
+from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date
 from .forms import TicketForm
 import uuid
@@ -81,10 +81,11 @@ def bus_details(request, bus_schedule_id):
             form = TicketForm(request.POST)
 
             print('Post request')
+
             if form.is_valid():
                 
                 print('<>?<>?<>?<>?<>?')
-                print('FOrm validated')
+                print('Form validated')
                 
                 # ticket = form.save(commit=False)
 
@@ -94,8 +95,7 @@ def bus_details(request, bus_schedule_id):
 
                 # ticket.save()
                 # print('<><><><><><><>')
-                # print(ticket)
-
+                # print(ticket.phone_number)
 
         else:
             form = TicketForm()
