@@ -115,7 +115,6 @@ class Route(models.Model):
                     continue
         return None
 
-
 class Bus(models.Model):
     '''
     Class to define a bus 
@@ -303,8 +302,6 @@ class Schedule(models.Model):
                 continue
 
         return departure_buses
-
-
 
 class Ticket(models.Model):
     '''
