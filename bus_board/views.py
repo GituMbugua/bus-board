@@ -72,6 +72,7 @@ def bus_details(request, bus_schedule_id):
     View function to display a form for the user to fill to get a ticket
     '''
     try:
+
         selected_bus = Schedule.get_single_schedule(bus_schedule_id)
 
         title = f'{selected_bus.bus.bus_organisation} Schedule Details'
@@ -87,17 +88,18 @@ def bus_details(request, bus_schedule_id):
                 print('<>?<>?<>?<>?<>?')
                 print('Form validated')
                 
-                # ticket = form.save(commit=False)
+                ticket = form.save(commit=False)
 
-                # ticket.schedule = selected_bus
+                ticket.schedule = selected_bus
 
-                # ticket.ticket_number = uuid.uuid4()
+                ticket.ticket_number = uuid.uuid4()
 
-                # ticket.save()
-                # print('<><><><><><><>')
-                # print(ticket.phone_number)
+                ticket.save()
+                print('<><><><><><><>')
+                print(ticket.phone_number)
 
         else:
+
             form = TicketForm()
 
             return render(request, 'bus_details.html', {'title':title, 'form':form})
