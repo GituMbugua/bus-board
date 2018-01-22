@@ -5,6 +5,7 @@ from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date
 from .forms import TicketForm
 import uuid
+# from django.utils import urlencode
 
 def home(request):
     '''
@@ -81,12 +82,7 @@ def bus_details(request, bus_schedule_id):
             
             form = TicketForm(request.POST)
 
-            print('Post request')
-
             if form.is_valid():
-                
-                print('<>?<>?<>?<>?<>?')
-                print('Form validated')
                 
                 ticket = form.save(commit=False)
 
@@ -95,8 +91,10 @@ def bus_details(request, bus_schedule_id):
                 ticket.ticket_number = uuid.uuid4()
 
                 ticket.save()
-                print('<><><><><><><>')
-                print(ticket.phone_number)
+
+                ticket_id = ticket.id
+
+                return redirect('/ticket/' + str(ticket_id))
 
         else:
 

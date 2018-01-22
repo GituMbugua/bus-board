@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from .views import generate_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('bus_board.urls')),
     url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
+    url(r'^ticket/(?P<ticket_id>(\d+))$', generate_view )
 ]
