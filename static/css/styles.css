@@ -19,10 +19,19 @@ body {
   background: #0071c7;
   position: static;
   border: none;
+  border-radius: 0;
   margin-bottom: 0;
+}
+.navbar-container {
+  height: 70px;
 }
 .navbar-default{
   margin: 0;
+}
+.navbar-brand {
+  float: none;
+  text-align: center;
+  margin: auto;
 }
 .navbar-brand h4 {
   color: white;
@@ -82,6 +91,9 @@ body {
 .featured img {
   height: 200px;
 }
+.featured h3 {
+  text-align: center;
+}
 /* end */
 
 /* 'book with us' section */
@@ -93,10 +105,10 @@ body {
   margin-top: 8%;
 }
 .book {
-    background: url('../img/road.jpg') no-repeat;
-    background-size: cover;
-    height: 500px;
-    color: whitesmoke;
+  background: url('../img/road.jpg') no-repeat;
+  background-size: cover;
+  height: 500px;
+  color: whitesmoke;
 }
 .book-icons img {
   height: 150px;
@@ -105,6 +117,7 @@ body {
 }
 .book-icons h3 {
   font-weight: 600;
+  text-align: center;
 }
 /* end */
 
