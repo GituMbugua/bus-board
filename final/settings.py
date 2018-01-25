@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bus_board',
     'bootstrap3',
     'star_ratings',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -3,48 +3,48 @@
 {% load ratings %}
 
 {% block content %}
-<div class="container-fluid hero-primary">
+<div class="container-fluid hero-primary content">
 
   <div class="row route-update">
+    <div class="update-overlay">
+      <div class="container">
 
-    <div class="container">
+        <div class="update-route-container">
+            <div class="route">
 
-      <div class="route">
-        <div class="text-xl">
-          <span>{{search_departure_location}}</span>
-          <span><i class="fa fa-long-arrow-right"></i></span>
-          <span>{{search_arrival_location}}</span>
-        </div>
-      <div class="text-xl">{{convert_to_date}}</div>
-    </div>
-      
-    <!-- search form -->
-    <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+                <div class="text-xl">
+                  <span>{{search_departure_location}}</span>
+                  <span><i class="fa fa-long-arrow-right"></i></span>
+                  <span>{{search_arrival_location}}</span>
+                </div>
 
-      <div class="column column-inline large-5">
-
-          <div class=" form-group input-search-bar ">
-
-            <div class="input-group ">
-
-              <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location" required>
-
-              <input type="text" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location" required>
-
-              <input type="date" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date" required>
-
-              <div class="input-group-btn">
-                  <button class="btn btn-success route-button" type="submit">Update</button>
-              </div>
-              
+              <div class="text-xl">{{convert_to_date}}</div>
             </div>
+              
+            <!-- search form -->
+            <form action="{% url 'search_results' %}" class="search-form search-form-inline">
+              <div class="column column-inline large-5">
+                <div class=" form-group input-search-bar ">
 
-          </div>
+                  <div class="input-group ">
+                    <input type="text" class="form-input form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="From" tabindex="1" value="" name="depature-location" required>
+      
+                    <input type="text" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="To" tabindex="1" value="" name="arrival-location" required>
+      
+                    <input type="date" class="form-input  form-control" id="search" autocorrect="off" id="SearchKeyword" data-test="search-input-input" placeholder="mm/dd/yy" tabindex="1" value=""  name="travel-date" required>
+      
+                    <div class="input-group-btn">
+                        <button class="btn btn-success route-button" type="submit">Update</button>
+                    </div>
+                  </div>
 
+                </div>
+              </div>
+            </form>
+            <!-- search form end -->
+        </div>
       </div>
-
-    </form>
-    <!-- search form end -->
+  
     </div>
   </div>
 </div>
@@ -112,7 +112,7 @@
             <div class="departure-card">
                 <section id="bus">{{bus.bus.bus_organisation}}
                 </section>
-                <section id="departure">{{bus.departure_time | date:"g:i a"}}</section>
+                <section id="departure">{{bus.departure_time | date:"g:i A"}}</section>
                 <section id="duration">{{estimation_duration}}</section>
                 <section id="seats">{{bus.bus.capacity}}</section>
                 <section id="price">Kes {{bus.price}}</section>
