@@ -100,7 +100,7 @@ def bus_details(request, bus_schedule_id):
 
             form = TicketForm()
 
-            return render(request, 'bus_details.html', {'title':title, 'form':form})
+            return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus})
 
     except ObjectDoesNotExist:
 

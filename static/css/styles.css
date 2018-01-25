@@ -4,10 +4,18 @@
 html {
   font-size: 62.5%;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
+  position: relative;
+  /* padding-bottom: 15rem; */
   background: #EBF2F7;
   font-size: 1.6em;
   font-family: Open Sans, sans-serif;
@@ -16,11 +24,14 @@ body {
 
 /* navbar */
 .navbar {
-  background: #0071c7;
-  position: static;
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(21,21,21,0.8), rgba(21,21,21,0));
+  position: fixed;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 .navbar-container {
   height: 70px;
@@ -43,17 +54,16 @@ body {
 
 /* footer */
 .footer {
-    position: relative;
-    left: 0;
+    right: 0;
     bottom: 0;
+    left: 0;
+    padding: 3rem;
     width: 100%;
-    height: 110px;
+    height: 100px;
     background: rgb(230, 240, 248);
     text-align: center;
 }
-.footer-content {
-  margin-top: 3%;
-}
+
 /* end */
 
 /*************************************************************************************
@@ -61,16 +71,17 @@ body {
 *************************************************************************************/
 /* search section */
 .search {
-  background-color: #127ccb;
+  background: url('../img/scenic.jpg');
   background-size: cover;
-  background-position-y: 20%;
-  height: 400px;
+  background-position-y: 100%;
+  height: 500px;
 }
 .search-overlay {
+  background-color: #127bcb50;
   height: inherit;
 }
 .home-search-container {
-  margin-top: 10%;
+  margin-top: 15%;
   color: white;
 }
 .home-search-container h1 {
@@ -111,8 +122,9 @@ body {
   color: whitesmoke;
 }
 .book-icons img {
-  height: 150px;
+  height: 120px;
   margin: auto;
+  margin-bottom: 10%;
   float: none;
 }
 .book-icons h3 {
@@ -129,14 +141,23 @@ body {
 /* search update section */
 
 .hero-primary{
-  background-color: #127ccb;
   color: #fff;
-  padding: 23px 19px;
-  height: 300px;
+  /* padding: 23px 19px; */
+}
+.update-overlay {
+  background-color: #127bcb50;
+  height: inherit;
 }
 .route-update {
-  height: max-content;
-  margin: auto; 
+  background: url('../img/scenic.jpg');
+  /* background-color: #127ccb; */
+  background-size: cover;
+  background-position-y: 100%;
+  height: 350px;
+  /* height: max-content; */
+}
+.update-route-container {
+  margin-top: 10%; 
 }
 .route {
   display: flex;
@@ -157,9 +178,6 @@ body {
 .form-input, .btn-update {
   height: 52px;
   color: #000;
-}
-.route-update {
-  margin-top: 3%;
 }
 
 
@@ -182,7 +200,7 @@ body {
 /* end */
 
 /***************************************************************************************
-results section
+results page
 *********************************************************************/
 .results {
   display: flex;
@@ -267,6 +285,9 @@ ul {
 .departure-row .col-md-3 {
   padding: 0;
 }
+.departure-row .col-md-3 a:hover {
+  text-decoration: none;
+}
 
 #bus{
   /* width: 30%; */
@@ -274,6 +295,7 @@ ul {
   /* flex-direction: column; */
   /* justify-content: flex-start; */
   flex:1;
+  font-weight: bold;
 }
 
 #departure{
@@ -310,9 +332,23 @@ ul {
 /* Style Ratings */
 .star-ratings {
   display: inline-flex;
-  margin-left: 2%;
+  margin: 0.5% 0 0 2%;
 }
 
 div.star-ratings-rating-user, div.star-ratings-rating-average, div.star-ratings-rating-count {
   display: none;
 }
+/***************************************************************************************
+end of results page
+*********************************************************************/
+
+/***************************************************************************************
+bus details page
+*********************************************************************/
+.panel-default {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px 0 rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
+}
+
+/***************************************************************************************
+end of bus details page
+*********************************************************************/
