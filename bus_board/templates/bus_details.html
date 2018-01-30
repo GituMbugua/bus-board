@@ -4,29 +4,29 @@
 
 {% block content %}
 <div class="container-fluid">
-    <!-- <div class="row route-update">
-        <div class="update-overlay">
+    <div class="row bus-details">
+        <div class="details-overlay">
           <div class="container">
     
-            <div class="update-route-container">
+            <div class="bus-details-container">
               <div class="route">
     
                   <div class="text-xl">
-                    <span>{{search_departure_location}}</span>
+                    <span>{{selected_bus.bus.route.departure_location}}</span>
                     <span><i class="fa fa-long-arrow-right"></i></span>
-                    <span>{{search_arrival_location}}</span>
+                    <span>{{selected_bus.bus.route.destination_location}}</span>
                   </div>
     
-                <div class="text-xl">{{convert_to_date}}</div>
+                <div class="text-xl">{{selected_bus.departure_time | date:"N j, o"}}</div>
               </div>
             </div>
           </div>
         </div>  
-    </div> -->
+    </div>
               
-    <div class="container">
+    <div class="container detail-panels">
       <div class="col-md-8 col-lg-8">
-        <div class="panel panel-default bus-details">
+        <div class="panel panel-default bus-details-panel">
           <div class="panel-heading">
             <h3>Trip Details</h3>
           </div>
@@ -42,7 +42,7 @@
         </div>
         <div class="panel-body">
     
-          <form action="" method="post" enctype="multipart/form-data">
+          <form action="" method="post" enctype="multipart/form-data" class="passenger-form">
             {% csrf_token %}
           
     
@@ -88,6 +88,16 @@
     
         </div>
       </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Payment</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Pay via M-pesa</h4>
+          </div>
+        </div>
       </div>
     </div>
 </div>
