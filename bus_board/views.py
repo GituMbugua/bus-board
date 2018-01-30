@@ -5,6 +5,7 @@ from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date
 from .forms import TicketForm
 import uuid
+import phonenumbers
 # from django.utils import urlencode
 
 def home(request):
@@ -73,6 +74,7 @@ def bus_details(request, bus_schedule_id):
     View function to display a form for the user to fill to get a ticket
     '''
     try:
+        # args = {}
 
         selected_bus = Schedule.get_single_schedule(bus_schedule_id)
 
@@ -94,14 +96,75 @@ def bus_details(request, bus_schedule_id):
 
                 ticket_id = ticket.id
 
-                return redirect('/ticket/' + str(ticket_id))
+                # return redirect('/ticket/' + str(ticket_id))
+                return redirect(mobile_payment, ticket_id)
 
         else:
 
             form = TicketForm()
 
-            return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus})
+        # args['form'] = form
+
+        return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus})
 
     except ObjectDoesNotExist:
 
          return redirect(Http404)
+
+def mobile_payment(request, ticket_id):
+    '''
+    Function that carries out the payment process 
+    '''
+    # Get ticket with a given id 
+    ticket = Ticket.get_single_ticket(ticket_id)
+
+    print(ticket)
+    
+    #Specify your credentials
+    # username = "Bus-board"
+    # username = "sandbox"
+    # apiKey   = "f50f85e67fa88fe5c30ba5f184dbd3d7c7bdef5e98440a183de19eb33cfbb6f5"
+
+    #Create an instance of our awesome gateway class and pass your credentials
+    # gateway = AfricasTalkingGateway(username, apiKey, "sandbox")
+
+    #*************************************************************************************
+    #  NOTE: If connecting to the sandbox:
+    #
+    #  1. Use "sandbox" as the username
+    #  2. Use the apiKey generated from your sandbox application
+    #     https://account.africastalking.com/apps/sandbox/settings/key
+    #  3. Add the "sandbox" flag to the constructor
+    #
+    #  gateway = AfricasTalkingGateway(username, apiKey, "sandbox");
+    #**************************************************************************************
+
+    # Specify the name of your Africa's Talking payment product
+    # productName  = "Nairobi-Nakuru"
+
+    # The phone number of the customer checking out
+    # phoneNumber  = "+2547283822478"
+
+    # The 3-Letter ISO currency code for the checkout amount
+    # currencyCode = "KES"
+
+    # The checkout amount
+    # amount = 2.00
+
+    # Any metadata that you would like to send along with this request
+    # This metadata will be  included when we send back the final payment notification
+    # metadata = {"agentId"   : "654",
+    #             "productId" : "321"}
+    # try:
+        # Initiate the checkout. If successful, you will get back a transactionId
+        # transactionId = gateway.initiateMobilePaymentCheckout(
+        # productName,
+        # phoneNumber,
+        # currencyCode,
+        # amount,
+        # metadata)
+        # print "The transactionId is " + transactionId
+        
+    # except AfricasTalkingGatewayException, e:
+    #     print "Received error response: %s" % str(e)
+
