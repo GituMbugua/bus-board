@@ -12,7 +12,7 @@ class TicketForm(forms.ModelForm):
   class Meta:
     model = Ticket
 
-    fields = ('first_name', 'last_name', 'email', 'phone_number', 'transaction_code')
+    fields = ('first_name', 'last_name', 'email', 'phone_number')
 
   def clean(self):
     
