@@ -188,8 +188,8 @@ border: none;
 .book {
   /* background: url('../img/road.jpg') no-repeat; */
   background-size: cover;
-  height: 400px;
-  margin-bottom: 8%; 
+  height: 365px;
+  margin-bottom: 7%; 
   color: whitesmoke;
 }
 .book h2 {
