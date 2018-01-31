@@ -7,15 +7,10 @@
 
 ## User Stories
 As a user I would like to:
-* see some of  the available routes
 * search for a bus by entering the departure location and arrival location
-* select a route
-* see buses on the selected routes, number of buses, ticket price and timings
 * select a bus
-* create an account
-* be directed to the login page after clicking select
 * see information on the selected bus
-* see the Paybill number after clicking book
+* pay for the selected bus and get a ticket
 
 ## Specifications
 | Behavior        | Input           | Outcome  |
