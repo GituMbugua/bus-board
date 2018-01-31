@@ -15,7 +15,7 @@ As a user I would like to:
 ## Specifications
 | Behavior        | Input           | Outcome  |
 | ------------- |:-------------:| -----:|
-| Search for a bus | Departure location: Nakuru <br> Arrival Location: Nairobi <br> Travel Date: 02/02/2018 | Display list of buses found |
+| Search for a bus | Departure location: Nakuru <br> <br> Arrival Location: Nairobi <br> <br> Travel Date: 02/02/2018 | Display list of buses found |
 | Select a bus | Click **select** button | Display information about the selected bus and a form for user to input their information |
 | Get a ticket | Click **confirm and book** | Display pdf with ticket information |
 
@@ -59,7 +59,15 @@ DATABASES = {
 10. Run `./manage.py runserver` or `python3.6 manage.py runserver` to run the application
 
 ### Africas Talking API
-Visit [this](https://account.africastalking.com/auth/register) site and register to get an API Key for Africas Talking
+1. Visit [this](https://account.africastalking.com/auth/register) site and register
+2. Click **Go to Sandbox App** button
+3. Click **Settings** on the side bar menu and click **API Key**
+4. Enter **your password** in the form field
+5. Copy the generated **API KEY** 
+6. Go to the `.env` file and paste the api key
+```
+API_KEY_AFRICAS_TALKING = <your api key>
+```
 
 ## Known Bugs
 
