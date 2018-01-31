@@ -20,7 +20,9 @@ As a user I would like to:
 ## Specifications
 | Behavior        | Input           | Outcome  |
 | ------------- |:-------------:| -----:|
-|  |  |  |
+| Search for a bus | Departure location: Nakuru <br> Arrival Location: Nairobi <br> Travel Date: 02/02/2018 | Display list of buses found |
+| Select a bus | Click **select** button | Display information about the selected bus and a form for user to input their information |
+| Get a ticket | Click **confirm and book** | Display pdf with ticket information |
 
 ## Setup/Installation Requirements
 
@@ -64,9 +66,7 @@ DATABASES = {
 
 ## Known Bugs
 
-* search for buses by routes
-* select a bus
-* book a bus
+* open ticket pdf after callback url is sent back
 
 ## Technologies Used
 - Python 3.6.2
