@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Signika" rel="stylesheet">
+    <link rel="shortcut icon" type="img/png" href="{% static 'img/favicon.png' %}">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Signika:300,400" rel="stylesheet">
     {%if title%}
     <title>{{title}}</title>
     {%else%}
@@ -18,7 +19,6 @@
         {% bootstrap_css%}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% endblock %}
-</head>
 </head>
 <body>
     {% include 'navbar.html' %}

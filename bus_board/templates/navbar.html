@@ -11,25 +11,9 @@
 <body>
         <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse">
             <div class="container navbar-container">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 <div class="navbar-brand">
-                    <a href="{% url 'home' %}"><h2>Bus</h2><img src="{% static 'img/logo.png' %}" alt="Bus Board Logo" class="logo"><h2>Board</h2></a>
+                    <a href="{% url 'home' %}"><img src="{% static 'img/bus_logo1.png' %}" alt="Bus Board Logo" class="logo"></a>
                 </div>
-                <!-- <div class="navbar-collapse collapse navbar-right" id="navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item" data-toggle="collapse" data-target="#navbar-collapse"><a href="#"><h4>About</h4></a></li>
-                        {% if user.is_authenticated %}
-                        <li class="nav-item" data-toggle="collapse" data-target="#navbar-collapse"><a href="/logout"><h4>Logout</h4></a></li>
-                        {% else %}
-                        <li class="nav-item" data-toggle="collapse" data-target="#navbar-collapse"><a href="#"><h4>Sign In</h4></a></li>
-                        {% endif %}
-                    </ul>
-                </div> -->
             </div>
         </nav>
 </body>

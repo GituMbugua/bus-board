@@ -3,12 +3,12 @@
 {% load static %}
 
 {% block content %}
-    <div class="container-fluid">
+    <div class="container-fluid home-container">
         <div class="row search">
             <div class="search-overlay">
                 <div class="container">
                     <div class="home-search-container">
-                        <h1>Search Bus Tickets the Easiest Way</h1>
+                        <h1>Get Bus Tickets the Easiest Way</h1>
                         <!-- search form -->
                         <form action="{% url 'search_results' %}" class="search-form search-form-inline">
                             <div class="column column-inline large-5">
@@ -32,7 +32,7 @@
 
         <div class="row featured">
             <div class="container">
-                    <h2>Featured Bus Routes</h2>
+                    <h2 class="text-center">Featured Bus Routes</h2>
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <img class="img-responsive" src="{% static 'img/kisumu.jpg' %}" alt="Kisumu">
                     <h3>From Nairobi to Kisumu</h3>
@@ -47,29 +47,59 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="row about">
+            <div class="container">
+                
+            </div>
+        </div> -->
+        
         <div class="row book">
             <div class="book-overlay">
                 <div class="container">
-                    <h2>Why book with <b>Bus Board</b></h2>
-                    <div class="book-section">
-
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 book-icons">
-                            <img class="img-responsive" src="{% static 'img/tickets.png' %}" alt="Tickets">
-                            <h3>Book bus tickets to your desired destination</h3>
+                    <div class="col-md-7">
+                        <h2>About <b>Bus Board</b></h2>
+                        
+                        <div class="about-description">
+                            <h3 class="text-center">Bus Board is an online bus booking system.</h3>
+                            <p> With its comprehensive list of bus routes and schedules, travellers in Kenya can search, compare and book a bus from the comfort of their homes. The Bus Board team believes traveling is not just a journey or a tour, it is a tale and would like to assist people in sharing their story.</p>
                         </div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 book-icons">
-                            <img class="img-responsive" src="{% static 'img/smile.png' %}" alt="Smile">
-                            <h3>Experience the convenience and satisfaction of a user-friendly website</h3>
-                        </div>
-
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 book-icons">
-                            <img class="img-responsive" src="{% static 'img/bus.png' %}" alt="Bus">
-                            <h3>Get a range of bus options from different operators</h3>
-                        </div>
-
+                    </div>
+                    <div class="col-md-5">
+                        <h2>Why book with <b>Bus Board</b></h2>
+                        <section id="carousel">
+                            <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="5000">
+                                <!-- Carousel indicators -->
+                                <ol class="carousel-indicators">
+                                    <li data-target="#fade-quote-carousel" data-slide-to="0"></li>
+                                    <li data-target="#fade-quote-carousel" data-slide-to="1" class="active"></li>
+                                    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
+                                </ol>
+                                <!-- Carousel items -->
+                                <div class="carousel-inner">
+                                    <div class="item">
+                                        <img class="img-responsive" src="{% static 'img/tickets.png' %}" alt="Tickets">
+                                        <blockquote>
+                                            <h4>Book bus tickets to your desired destination</h4>
+                                        </blockquote>	
+                                    </div>
+                                    <div class="active item">
+                                        <img class="img-responsive" src="{% static 'img/smile.png' %}" alt="Smile">
+                                        <blockquote>
+                                            <h4>Experience the convenience and satisfaction of a user-friendly website</h4>
+                                        </blockquote>
+                                    </div>
+                                    <div class="item">
+                                        <img class="img-responsive" src="{% static 'img/bus.png' %}" alt="Bus">
+                                        <blockquote>
+                                            <h4>Get a range of bus options from different operators</h4>
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -1,5 +1,8 @@
+AfricastalkingGateway==2.0
 astroid==1.5.3
 Babel==2.5.3
+certifi==2018.1.18
+chardet==3.0.4
 confusable-homoglyphs==2.0.2
 dj-database-url==0.4.2
 Django==1.11.7
@@ -16,6 +19,7 @@ django-widget-tweaks==1.4.1
 gunicorn==19.7.1
 html5lib==1.0b10
 httplib2==0.10.3
+idna==2.6
 isort==4.2.15
 lazy-object-proxy==1.3.1
 mccabe==0.6.1
@@ -28,7 +32,10 @@ PyPDF2==1.26.0
 python-decouple==3.1
 pytz==2017.3
 reportlab==3.4.0
+requests==2.18.4
+screen==1.0.1
 six==1.11.0
+urllib3==1.22
 webencodings==0.5.1
 whitenoise==3.3.1
 wrapt==1.10.11
