@@ -39,11 +39,11 @@ def search_results(request):
 
             # Get the route 
             result_route = Route.get_search_route(search_departure_location,search_arrival_location)
+            print(result_route)
 
             # Check if route exists found
             if result_route != None :
-                print(result_route.id)
-
+                
                 # Schedule with the same depature date
                 schedule_with_depature_date = Schedule.get_departure_buses(convert_to_date, result_route.id)
 
@@ -56,17 +56,18 @@ def search_results(request):
                     return render(request, 'search.html', {'title':title, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date, 'buses':schedule_with_depature_date, 'estimation_duration':estimation_duration})
 
                 else:
+                    print('no scheduled buses')
                     no_scheduled_bus_message = 'No scheduled buses'
 
                     return render(request, 'search.html', {'title':title, 'no_scheduled_bus_message':no_scheduled_bus_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
 
-        # Otherwise
-        else:
-            
-            no_route_message = 'Bus route not found'
+            # Otherwise
+            else:
+                
+                no_route_message = 'Bus route not found'
 
-            return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
-    
+                return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
+        
     except ObjectDoesNotExist:
 
         return redirect(Http404)
