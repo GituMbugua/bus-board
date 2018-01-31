@@ -19,14 +19,14 @@ body {
   background: #EBF2F7;
   font-size: 1.6em;
   font-family: Signika, sans-serif;
-  height: 100%;
+  min-height: 100%;
 }
 
 /* navbar */
 .navbar {
   background: transparent;
   background-image: linear-gradient(to bottom, rgba(21,21,21,0.8), rgba(21,21,21,0));
-  position: fixed;
+  position: relative;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
@@ -47,12 +47,11 @@ body {
 }
 .logo {
   display: inline;
-  height: 45px
+  height: 45px;
+  margin: auto;
 }
-.navbar-brand h2 {
-  color: white;
-  display: inline;
-  margin: 0 2% 0 2%;
+.navbar-brand img {
+  height: 80px;
 }
 .navbar-inverse .navbar-collapse h4 {
   color: white;
@@ -65,11 +64,13 @@ body {
     bottom: 0;
     left: 0;
     padding: 3rem;
+    margin: auto;
     width: 100%;
     height: 100px;
     background: rgb(230, 240, 248);
     text-align: center;
-    
+    overflow: hidden;
+    position: absolute;
 }
 
 /* end */
@@ -78,6 +79,9 @@ body {
  landing page
 *************************************************************************************/
 /* search section */
+.home-container {
+  margin-top: -70px;
+}
 .search {
   background: url('../img/scenic.jpg');
   background-size: cover;
@@ -115,24 +119,86 @@ body {
 }
 /* end */
 
+/* about us section */
+.about {
+  height: 400px;
+  background: #2d728f;
+  color: whitesmoke;
+}
+
+.about-description {
+  padding-top: 4%;
+}
+.about-description p {
+  font-weight: 300;
+  font-size: 18px;
+}
+section {
+  padding-top: 10%;
+}
+
+
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
+
+#fade-quote-carousel.carousel {
+padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+opacity: 0;
+-webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+        transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+opacity: 1;
+-webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+        transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+background-color: #ecf3f7;
+border: none;
+}
+.carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+}
+#fade-quote-carousel blockquote {
+  text-align: center;
+  border: none;
+  padding: 2px 20px;
+  margin: 0 0 0px;
+}
+/* end of about us section */
+
 /* 'book with us' section */
 .book-overlay {
   height: inherit;
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
+  background-color: #2d728f;
 }
 .book-section {
   margin-top: 8%;
 }
 .book {
-  background: url('../img/road.jpg') no-repeat;
+  /* background: url('../img/road.jpg') no-repeat; */
   background-size: cover;
-  height: 500px;
+  height: 400px;
+  margin-bottom: 8%; 
   color: whitesmoke;
 }
-.book-icons img {
-  height: 120px;
+.book h2 {
+  text-align: center;
+}
+
+.carousel-inner>.item>img {
+  height: 100px;
   margin: auto;
-  margin-bottom: 10%;
   float: none;
 }
 .book-icons h3 {
@@ -148,9 +214,9 @@ body {
 
 /* search update section */
 
-.hero-primary{
+.hero-primary {
   color: #fff;
-  /* padding: 23px 19px; */
+  margin-top: -70px;
 }
 .update-overlay {
   background-color: #127bcb50;
@@ -207,14 +273,15 @@ body {
 }
 /* end */
 
-/***************************************************************************************
+/*********************************************************************************
 results page
-*********************************************************************/
+**********************************************************************************/
 .results {
   display: flex;
   justify-content: flex-start;
   margin-top: 1em;
-  padding-bottom: 15px
+  padding-bottom: 15px;
+  font-size: 22px;
 }
 .scheduleBar .cat{
   height: 2.125em;
@@ -298,10 +365,6 @@ ul {
 }
 
 #bus{
-  /* width: 30%; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: flex-start; */
   flex:1;
   font-weight: bold;
 }
@@ -346,23 +409,25 @@ ul {
 div.star-ratings-rating-user, div.star-ratings-rating-average, div.star-ratings-rating-count {
   display: none;
 }
-/***************************************************************************************
+/****************************************************************************
 end of results page
-*********************************************************************/
+*****************************************************************************/
 
-/***************************************************************************************
+/****************************************************************************
 bus details page
-*********************************************************************/
+*****************************************************************************/
 .bus-details {
-  height: 150px;
-  background: rgb(45, 45, 255);
+  height: 170px;
+  background: #2d728f;
+  margin-top: -70px;
 }
 .bus-details-container {
-  margin-top: 6%;
+  margin-top: 9%;
   color: white;
 }
 .detail-panels {
   margin-top: 2%;
+  margin-bottom: 8%;
 }
 .panel-default {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px 0 rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
@@ -377,6 +442,6 @@ bus details page
   height: 40px;
 }
 
-/***************************************************************************************
+/*****************************************************************************
 end of bus details page
-*********************************************************************/
+******************************************************************************/
