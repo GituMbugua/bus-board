@@ -38,13 +38,15 @@
       @frame content_frame {
         left: 5pt; 
         width: 295pt; 
-        top: 10pt;
-        height: 375pt;
+        top: 1pt;
+        height: 800pt;
         /* left: 150pt; */
         /* width: 5pt; */
         /* top: 95pt; */
         /* height: 250pt; */
         padding: 20pt;
+        padding-top: 0;
+        margin-top: 0;
         /* -pdf-frame-border: 1; */
         /* font-size: 11pt */
       }  
@@ -65,6 +67,13 @@
       }   
     
     }
+    img.bus-board-logo {
+      margin-top: 0;
+      padding-top: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      height: 100pt;
+    }
 
     h5.ticket-number-header {
       -pdf-keep-with-next: false; 
@@ -72,12 +81,14 @@
       margin-bottom: 0;  
       padding-bottom: 0;
       font-size: 11pt;
+      margin-top: 0;
+      padding-top: 0;
     }
 
     p.ticket-number {
       -pdf-keep-with-next: false; 
       text-align: right;
-      margin-bottom: 4em;  
+      margin-bottom: 1.25em;  
       margin-top: 0;  
       font-size: 11pt;  
     }
@@ -101,8 +112,8 @@
       -pdf-keep-with-next: false; 
       margin:0;
       padding: 0;
-      margin-top: 4em;
-      margin-bottom: 4em;
+      margin-top: 2.5em;
+      margin-bottom: 2.5em;
       width: 295pt;
     }
 
@@ -136,11 +147,13 @@
 
 <body>
 
+  <img src="templates/pdf/bus-board-logo.png" alt="Bud Board" class="bus-board-logo">
+
   <table>
     <h5 class="ticket-number-header">Ticket No.</h5>
     <p class="ticket-number">{{gotten_ticket.ticket_number}}</p>
     
-    <h3 class="travel-information">Orperator : {{gotten_ticket.schedule.bus.bus_organisation}}</h3>
+    <h3 class="travel-information">Operator : {{gotten_ticket.schedule.bus.bus_organisation}}</h3>
     <h3 class="travel-information">{{gotten_ticket.schedule.bus.route.departure_location}} &rarr; {{gotten_ticket.schedule.bus.route.destination_location}} </h3>
     <h3 class="travel-information">{{gotten_ticket.schedule.departure_time|date:"j N o"}}</h3>
     <h3 class="travel-information">Departure Time : {{gotten_ticket.schedule.departure_time|date:"g:i A"}}</h3>
@@ -159,7 +172,6 @@
   <h5 class="transaction-code">Transaction ID: <span id="mpesa-code">{{gotten_ticket.transaction_code}}</span></h5>
 
 
-  
 </body>
 
 </html>
