@@ -58,7 +58,7 @@ DATABASES = {
 ``` 
 10. Run `./manage.py runserver` or `python3.6 manage.py runserver` to run the application
 
-### Africas Talking API
+### Africa's Talking API
 1. Visit [this](https://account.africastalking.com/auth/register) site and register a new account or log into your Africas Talking account
 2. Click **Go to Sandbox App** button
 3. Click **Settings** on the side bar menu and click **API Key**
