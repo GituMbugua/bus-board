@@ -31,12 +31,10 @@
             <h3>Trip Details</h3>
           </div>
           <div class="panel-body">
-            <h4>Departure Time</h4>
-            <h4>Duration</h4>
-            <h4>Operator</h4>
-            <h4>Price</h4>
-            <h4>{{selected_bus.bus.number_plate}}</h4>
-            <h4>{{selected_bus.bus.bus_organisation}}</h4>
+            <h4>Departure Time</h4> <h5>{{selected_bus.departure_time | date:"N j, o"}}</h5>
+            <h4>Duration</h4> <h5>{{estimation_duration}}</h5>
+            <h4>Operator</h4> <h5>{{selected_bus.bus.bus_organisation}}</h5>
+            <h4>Price</h4> <h5>{{selected_bus.price}}</h5>    
           </div>
         </div>
       
@@ -87,7 +85,7 @@
               </div>
             {% endfor %}
     
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-warning">Confirm and Book</button>
             </form>
     
         </div>

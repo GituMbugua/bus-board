@@ -89,7 +89,7 @@ body {
   height: 500px;
 }
 .search-overlay {
-  background-color: #127bcb50;
+  background-color: #31081f70;
   height: inherit;
 }
 .home-search-container {
@@ -133,7 +133,7 @@ body {
   font-weight: 300;
   font-size: 18px;
 }
-section {
+#carousel {
   padding-top: 10%;
 }
 
@@ -180,7 +180,7 @@ border: none;
 .book-overlay {
   height: inherit;
   /* background: rgba(0, 0, 0, 0.4); */
-  background-color: #2d728f;
+  background-color: #31081F;
 }
 .book-section {
   margin-top: 8%;
@@ -219,7 +219,7 @@ border: none;
   margin-top: -70px;
 }
 .update-overlay {
-  background-color: #127bcb50;
+  background-color: #31081f70;
   height: inherit;
 }
 .route-update {
@@ -418,7 +418,7 @@ bus details page
 *****************************************************************************/
 .bus-details {
   height: 170px;
-  background: #2d728f;
+  background: #31081f;
   margin-top: -70px;
 }
 .bus-details-container {
@@ -445,3 +445,53 @@ bus details page
 /*****************************************************************************
 end of bus details page
 ******************************************************************************/
+
+/*******************************************************************media queries**************************************************************************************/
+@media screen
+  and (min-device-width: 768px) 
+  and (max-device-width: 991px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .navbar-brand img {
+      height: 50px;
+    }
+    .home-search-container {
+      margin-top: 20%;
+    }
+    .update-route-container {
+      margin-top: 10%; 
+    }
+    .search {
+      height: 450px;
+    }
+    .search-button {
+      width: 100%;
+      border-radius: 0 0 3px 3px;
+    }
+    .book {
+      height: 630px;
+    }
+  }
+@media screen
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .navbar-brand img {
+      height: 50px;
+    }
+    .home-search-container {
+      margin-top: 20%;
+    }
+    .search {
+      height: 450px;
+    }
+    .search-button {
+      width: 100%;
+      border-radius: 0 0 3px 3px;
+    }
+    .busSearchResults{
+      display: block;
+    }
+    .book {
+      height: 700px;
+    }
+  }

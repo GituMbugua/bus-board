@@ -84,6 +84,8 @@ def bus_details(request, bus_schedule_id):
 
         title = f'{selected_bus.bus.bus_organisation} Schedule Details'
 
+        estimation_duration = Schedule.get_travel_estimation(bus_schedule_id)
+
         if request.method == 'POST':
             
             form = TicketForm(request.POST)
@@ -108,7 +110,7 @@ def bus_details(request, bus_schedule_id):
 
         # args['form'] = form
 
-        return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus})
+        return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus, 'estimation_duration':estimation_duration})
 
     except ObjectDoesNotExist:
 
@@ -137,7 +139,7 @@ def mobile_payment(request, ticket_id):
     # Specify your credentials
     # username = "Bus-board"
     username = "sandbox"
-    apiKey   = config('API_KEY_AFRICAS_TALKING')
+    apiKey = config('API_KEY_AFRICAS_TALKING')
 
     # Create an instance of our awesome gateway class and pass your credentials
     gateway = AfricasTalkingGateway(username, apiKey, "sandbox")

@@ -91,7 +91,7 @@
           
           <li class="duration">Estimated Duration</li>
           
-          <li class="seats">Seats</li>
+          <li class="seats hidden-xs hidden-sm">Seats</li>
           
           <li class="price">Price</li>
         </ul>
@@ -114,22 +114,22 @@
                 </section>
                 <section id="departure">{{bus.departure_time | date:"g:i A"}}</section>
                 <section id="duration">{{estimation_duration}}</section>
-                <section id="seats">{{bus.bus.capacity}}</section>
+                <section id="seats" class="hidden-xs hidden-sm">{{bus.bus.capacity}}</section>
                 <section id="price">Kes {{bus.price}}</section>
             </div>
             <div class="container-fluid">
   
               <div class="row departure-row">
 
-                <div class="col-md-9 col-lg-9">
+                <div class="hidden-xs hidden-sm col-md-9 col-lg-9">
                   <div class="departure-card-footer">
                       <span>{% ratings bus.bus.bus_organisation %} </span>
                   </div>
                 </div>
 
-                <div class="col-md-3 col-lg-3">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
                   <a href="{%url 'bus_details' bus.id%}">
-                      <button class="btn btn-warning search-button">Select</button>                    
+                      <button class="btn btn-success search-button">Select</button>                    
                   </a>
                 </div>
 
