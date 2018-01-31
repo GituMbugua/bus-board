@@ -32,7 +32,6 @@ As a user I would like to:
 * Postgres Database
 * Internet
 
-
 ### Installation Process
 1. Copy repolink
 2. Run `git clone REPO-URL` in your terminal
@@ -63,6 +62,9 @@ DATABASES = {
 }
 ``` 
 10. Run `./manage.py runserver` or `python3.6 manage.py runserver` to run the application
+
+### Africas Talking API
+Visit [this](https://account.africastalking.com/auth/register) site and register to get an API Key for Africas Talking
 
 ## Known Bugs
 
