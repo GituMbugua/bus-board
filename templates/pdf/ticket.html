@@ -38,8 +38,8 @@
       @frame content_frame {
         left: 5pt; 
         width: 295pt; 
-        top: 15pt;
-        height: 350pt;
+        top: 10pt;
+        height: 375pt;
         /* left: 150pt; */
         /* width: 5pt; */
         /* top: 95pt; */
@@ -140,6 +140,7 @@
     <h5 class="ticket-number-header">Ticket No.</h5>
     <p class="ticket-number">{{gotten_ticket.ticket_number}}</p>
     
+    <h3 class="travel-information">Orperator : {{gotten_ticket.schedule.bus.bus_organisation}}</h3>
     <h3 class="travel-information">{{gotten_ticket.schedule.bus.route.departure_location}} &rarr; {{gotten_ticket.schedule.bus.route.destination_location}} </h3>
     <h3 class="travel-information">{{gotten_ticket.schedule.departure_time|date:"j N o"}}</h3>
     <h3 class="travel-information">Departure Time : {{gotten_ticket.schedule.departure_time|date:"g:i A"}}</h3>

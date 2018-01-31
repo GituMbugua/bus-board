@@ -8,6 +8,7 @@ import uuid
 import phonenumbers
 # from AfricasTalkingGateway import AfricasTalkingGateway, AfricasTalkingGatewayException
 from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
+from decouple import config
 # from django.utils import urlencode
 
 def home(request):
@@ -121,7 +122,7 @@ def mobile_payment(request, ticket_id):
     ticket = Ticket.get_single_ticket(ticket_id)
 
     # Get the route and convert to string
-    bus_route = str((ticket.schedule.bus.route))
+    bus_route = str((ticket.schedule.bus.bus_organisation.name))
     print(type(bus_route))
 
     # Get the phone number
@@ -136,7 +137,7 @@ def mobile_payment(request, ticket_id):
     # Specify your credentials
     # username = "Bus-board"
     username = "sandbox"
-    apiKey   = "f50f85e67fa88fe5c30ba5f184dbd3d7c7bdef5e98440a183de19eb33cfbb6f5"
+    apiKey   = config('API_KEY_AFRICAS_TALKING')
 
     # Create an instance of our awesome gateway class and pass your credentials
     gateway = AfricasTalkingGateway(username, apiKey, "sandbox")
