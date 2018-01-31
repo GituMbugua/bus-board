@@ -82,7 +82,7 @@ API_KEY_AFRICAS_TALKING = <your api key>
 - HTML
 - Heroku
 - xhtml2pdf
-- Africas Talking API
+- Africa's Talking API
 
 ### License
 
