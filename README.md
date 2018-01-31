@@ -3,7 +3,7 @@
 ## By **[Gitu Mbugua](https://github.com/GituMbugua)**, **[John Mutavi](https://github.com/jonnygovish)** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 ## Description
-[This]() is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
+[This](https://bus-board.herokuapp.com/) is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
 
 ## User Stories
 As a user I would like to:
