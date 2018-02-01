@@ -57,12 +57,12 @@ def search_results(request):
 
                     return render(request, 'search.html', {'title':title, 'no_scheduled_bus_message':no_scheduled_bus_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
 
-        # Otherwise
-        else:
-            
-            no_route_message = 'Bus route not found'
+            # Otherwise
+            else:
+                
+                no_route_message = 'Bus route not found'
 
-            return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
+                return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
     
     except ObjectDoesNotExist:
 
@@ -105,3 +105,4 @@ def bus_details(request, bus_schedule_id):
     except ObjectDoesNotExist:
 
          return redirect(Http404)
+         
