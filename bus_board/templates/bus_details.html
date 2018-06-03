@@ -1,35 +1,106 @@
 {% extends 'base.html'%}
+{% load bootstrap3 %}
+{% load widget_tweaks %}
 
 {% block content %}
-<div class="container">
-  <form action="" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    <div class="form-group">
-      {{form.first_name.label}}
-      {{form.first_name}}
-      {{form.first_name.errors}}
+<div class="container-fluid">
+    <div class="row bus-details">
+        <div class="details-overlay">
+          <div class="container">
+    
+            <div class="bus-details-container">
+              <div class="route">
+    
+                  <div class="text-xl">
+                    <span>{{selected_bus.bus.route.departure_location}}</span>
+                    <span><i class="fa fa-long-arrow-right"></i></span>
+                    <span>{{selected_bus.bus.route.destination_location}}</span>
+                  </div>
+    
+                <div class="text-xl">{{selected_bus.departure_time | date:"N j, o"}}</div>
+              </div>
+            </div>
+          </div>
+        </div>  
     </div>
-    <div class="form-group">
-      {{form.last_name.label}}
-      {{form.last_name}}
-      {{form.last_name.errors}}
+              
+    <div class="container detail-panels">
+      <div class="col-md-8 col-lg-8">
+        <div class="panel panel-default bus-details-panel">
+          <div class="panel-heading">
+            <h3>Trip Details</h3>
+          </div>
+          <div class="panel-body">
+            <h4>Departure Time</h4> <h5>{{selected_bus.departure_time | date:"N j, o"}}</h5>
+            <h4>Duration</h4> <h5>{{estimation_duration}}</h5>
+            <h4>Operator</h4> <h5>{{selected_bus.bus.bus_organisation}}</h5>
+            <h4>Price</h4> <h5>{{selected_bus.price}}</h5>    
+          </div>
+        </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Passenger Details</h3>
+        </div>
+        <div class="panel-body">
+    
+          <form action="" method="post" enctype="multipart/form-data" class="passenger-form">
+            {% csrf_token %}
+          
+    
+            {% for hidden_field in form.hidden_fields %}
+              {{ hidden_field }}
+            {% endfor %}
+    
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% endif %}
+    
+            {% for field in form.visible_fields %}
+              <div class="form-group">
+                {{ field.label_tag }}
+    
+                {% if form.is_bound %}
+                  {% if field.errors %}
+                    {% render_field field class="form-control is-invalid" %}
+                    {% for error in field.errors %}
+                      <div class="invalid-feedback">
+                        {{ error }}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    {% render_field field class="form-control is-valid" %}
+                  {% endif %}
+                {% else %}
+                  {% render_field field class="form-control" %}
+                {% endif %}
+    
+                {% if field.help_text %}
+                  <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+              </div>
+            {% endfor %}
+    
+            <button type="submit" class="btn btn-warning">Confirm and Book</button>
+            </form>
+    
+        </div>
+      </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>Payment</h3>
+          </div>
+          <div class="panel-body">
+            <em>*Payment only via M-pesa</em>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-group">
-      {{form.email.label}}
-      {{form.email}}
-      {{form.email.errors}}
-    </div>
-    <div class="form-group">
-      {{form.phone_number.label}}
-      {{form.phone_number}}
-      {{form.phone_number.errors}}
-    </div>
-    <div class="form-group">
-      {{form.transaction_code.label}}
-      {{form.transaction_code}}
-      {{form.transaction_code.errors}}
-    </div>
-    <button type="submit">Confirm and Book</button>
-  </form>
 </div>
 {% endblock %}

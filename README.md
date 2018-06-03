@@ -3,24 +3,21 @@
 ## By **[Gitu Mbugua](https://github.com/GituMbugua)**, **[John Mutavi](https://github.com/jonnygovish)** and **[Carol Wanjohi](https://github.com/carolwanjohi)**
 
 ## Description
-[This]() is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
+[This](https://bus-board.herokuapp.com/) is a web application that allows users to search for buses by entering their starting point and destination. The results list has buses arranged with the cheapest bus at the top of the list. The user can select a bus and book a seat in the bus.
 
 ## User Stories
 As a user I would like to:
-* see some of  the available routes
 * search for a bus by entering the departure location and arrival location
-* select a route
-* see buses on the selected routes, number of buses, ticket price and timings
 * select a bus
-* create an account
-* be directed to the login page after clicking select
 * see information on the selected bus
-* see the Paybill number after clicking book
+* pay for the selected bus and get a ticket
 
 ## Specifications
 | Behavior        | Input           | Outcome  |
 | ------------- |:-------------:| -----:|
-|  |  |  |
+| Search for a bus | Departure location: Nakuru <br> <br> Arrival Location: Nairobi <br> <br> Travel Date: 02/02/2018 | Display list of buses found |
+| Select a bus | Click **select** button | Display information about the selected bus and a form for user to input their information |
+| Get a ticket | Click **confirm and book** | Display pdf with ticket information |
 
 ## Setup/Installation Requirements
 
@@ -29,7 +26,6 @@ As a user I would like to:
 * Virtual environment
 * Postgres Database
 * Internet
-
 
 ### Installation Process
 1. Copy repolink
@@ -62,21 +58,31 @@ DATABASES = {
 ``` 
 10. Run `./manage.py runserver` or `python3.6 manage.py runserver` to run the application
 
+### Africa's Talking API
+1. Visit [this](https://account.africastalking.com/auth/register) site and register a new account or log into your Africas Talking account
+2. Click **Go to Sandbox App** button
+3. Click **Settings** on the side bar menu and click **API Key**
+4. Enter **your password** in the form field
+5. Copy the generated **API KEY** 
+6. Go to the `.env` file and paste the api key
+```
+API_KEY_AFRICAS_TALKING = <your api key>
+```
+
 ## Known Bugs
 
-* search for buses by routes
-* select a bus
-* book a bus
+* open ticket pdf after callback url is sent back
 
 ## Technologies Used
 - Python 3.6.2
 - Django 1.11.7
-- Google Maps API
 - Bootstrap 3
 - Postgres Database
 - CSS
 - HTML
 - Heroku
+- xhtml2pdf
+- Africa's Talking API
 
 ### License
 

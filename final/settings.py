@@ -41,7 +41,11 @@ INSTALLED_APPS = [
     'bus_board',
     'bootstrap3',
     'star_ratings',
+    'widget_tweaks',
+    
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,6 +84,8 @@ STAR_RATINGS_STAR_HEIGHT =25
 STAR_RATINGS_STAR_WIDTH =25
 STAR_RATINGS_ANONYMOUS = True
 
+
+
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
@@ -88,12 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bus_board',
-        # 'USER': 'gitu_m',
-        # 'PASSWORD': 'sqlpass',
-        # 'USER': 'carol',
-        # 'PASSWORD': 'carol1',
-		# 'USER': 'puppah',
-		# 'PASSWORD': 'zanpakutou',
+        'USER': config('USER'),
+        'PASSWORD': config('PASSWORD'),
     }
 }
 

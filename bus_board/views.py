@@ -5,6 +5,10 @@ from .models import BusOrganisation, Route, Bus, Schedule, Ticket
 from datetime import datetime, date
 from .forms import TicketForm
 import uuid
+import phonenumbers
+# from AfricasTalkingGateway import AfricasTalkingGateway, AfricasTalkingGatewayException
+from africastalking.AfricasTalkingGateway import (AfricasTalkingGateway, AfricasTalkingGatewayException)
+from decouple import config
 # from django.utils import urlencode
 
 def home(request):
@@ -36,11 +40,11 @@ def search_results(request):
 
             # Get the route 
             result_route = Route.get_search_route(search_departure_location,search_arrival_location)
+            print(result_route)
 
             # Check if route exists found
             if result_route != None :
-                print(result_route.id)
-
+                
                 # Schedule with the same depature date
                 schedule_with_depature_date = Schedule.get_departure_buses(convert_to_date, result_route.id)
 
@@ -53,6 +57,7 @@ def search_results(request):
                     return render(request, 'search.html', {'title':title, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date, 'buses':schedule_with_depature_date, 'estimation_duration':estimation_duration})
 
                 else:
+                    print('no scheduled buses')
                     no_scheduled_bus_message = 'No scheduled buses'
 
                     return render(request, 'search.html', {'title':title, 'no_scheduled_bus_message':no_scheduled_bus_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
@@ -63,7 +68,7 @@ def search_results(request):
                 no_route_message = 'Bus route not found'
 
                 return render(request, 'search.html', {'title':title, 'no_route_message':no_route_message, 'search_departure_location':search_departure_location, 'search_arrival_location':search_arrival_location, 'convert_to_date':convert_to_date})
-    
+
     except ObjectDoesNotExist:
 
         return redirect(Http404)
@@ -73,10 +78,13 @@ def bus_details(request, bus_schedule_id):
     View function to display a form for the user to fill to get a ticket
     '''
     try:
+        # args = {}
 
         selected_bus = Schedule.get_single_schedule(bus_schedule_id)
 
         title = f'{selected_bus.bus.bus_organisation} Schedule Details'
+
+        estimation_duration = Schedule.get_travel_estimation(bus_schedule_id)
 
         if request.method == 'POST':
             
@@ -94,15 +102,100 @@ def bus_details(request, bus_schedule_id):
 
                 ticket_id = ticket.id
 
-                return redirect('/ticket/' + str(ticket_id))
+                return redirect(mobile_payment, ticket_id)
 
         else:
 
             form = TicketForm()
 
-            return render(request, 'bus_details.html', {'title':title, 'form':form})
+        # args['form'] = form
+
+        return render(request, 'bus_details.html', {'title':title, 'form':form, 'selected_bus':selected_bus, 'estimation_duration':estimation_duration, 'bus_schedule_id':bus_schedule_id})
 
     except ObjectDoesNotExist:
 
          return redirect(Http404)
-         
+
+
+def mobile_payment(request, ticket_id):
+    '''
+    Function that carries out the payment process 
+    '''
+    # Get ticket with a given id 
+    ticket = Ticket.get_single_ticket(ticket_id)
+
+    # Get the route and convert to string
+    bus_route = str((ticket.schedule.bus.bus_organisation.name))
+    print(type(bus_route))
+
+    # Get the phone number
+    phone_number = ticket.phone_number
+    print(type(phone_number))
+
+    # Get the ticket price and convert Decimal to int
+    ticket_price = float(ticket.schedule.price)
+    print(type(ticket_price))
+    
+    # Africas Talking Set Up
+    # Specify your credentials
+    # username = "Bus-board"
+    username = "sandbox"
+    apiKey = config('API_KEY_AFRICAS_TALKING')
+
+    # Create an instance of our awesome gateway class and pass your credentials
+    gateway = AfricasTalkingGateway(username, apiKey, "sandbox")
+
+    #*************************************************************************************
+    #  NOTE: If connecting to the sandbox:
+    #
+    #  1. Use "sandbox" as the username
+    #  2. Use the apiKey generated from your sandbox application
+    #     https://account.africastalking.com/apps/sandbox/settings/key
+    #  3. Add the "sandbox" flag to the constructor
+    #
+    #  gateway = AfricasTalkingGateway(username, apiKey, "sandbox");
+    #**************************************************************************************
+
+    # Specify the name of your Africa's Talking payment product
+    productName  = bus_route
+
+    # The phone number of the customer checking out
+    phoneNumber  = phone_number
+
+    # The 3-Letter ISO currency code for the checkout amount
+    currencyCode = "KES"
+
+    # The checkout amount
+    amount = ticket_price 
+    print(amount)
+
+    # Any metadata that you would like to send along with this request
+    # This metadata will be  included when we send back the final payment notification
+    metadata  = {"agentId"   : "654",
+                "productId" : "321"}
+    try:
+    # Initiate the checkout. If successful, you will get back a transactionId
+        transaction_id = gateway.initiateMobilePaymentCheckout(productName,
+                              phoneNumber,
+                              currencyCode,
+                              amount,
+                              metadata) 
+        print ("The transactionId is " + transaction_id)
+        
+        ticket.transaction_code = transaction_id
+        ticket.save()
+
+        print(ticket.transaction_code)
+        return redirect('/ticket/' + str(ticket_id))
+        
+
+    
+    except AfricasTalkingGatewayException as e:
+        print ("Received error response: %s" % str(e))
+
+
+
+
+
+
+

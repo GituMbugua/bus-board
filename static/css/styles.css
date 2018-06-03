@@ -4,23 +4,34 @@
 html {
   font-size: 62.5%;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
+  position: relative;
+  /* padding-bottom: 15rem; */
   background: #EBF2F7;
   font-size: 1.6em;
-  font-family: Open Sans, sans-serif;
-  height: 100%;
+  font-family: Signika, sans-serif;
+  min-height: 100%;
 }
 
 /* navbar */
 .navbar {
-  background: #0071c7;
-  position: static;
+  background: transparent;
+  background-image: linear-gradient(to bottom, rgba(21,21,21,0.8), rgba(21,21,21,0));
+  position: relative;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
+  width: 100%;
+  z-index: 100;
 }
 .navbar-container {
   height: 70px;
@@ -32,9 +43,15 @@ body {
   float: none;
   text-align: center;
   margin: auto;
+  font-family: Bree Serif, serif;
 }
-.navbar-brand h4 {
-  color: white;
+.logo {
+  display: inline;
+  height: 45px;
+  margin: auto;
+}
+.navbar-brand img {
+  height: 80px;
 }
 .navbar-inverse .navbar-collapse h4 {
   color: white;
@@ -43,34 +60,40 @@ body {
 
 /* footer */
 .footer {
-    position: relative;
-    left: 0;
+    right: 0;
     bottom: 0;
+    left: 0;
+    padding: 3rem;
+    margin: auto;
     width: 100%;
-    height: 110px;
+    height: 100px;
     background: rgb(230, 240, 248);
     text-align: center;
+    overflow: hidden;
+    position: absolute;
 }
-.footer-content {
-  margin-top: 3%;
-}
+
 /* end */
 
 /*************************************************************************************
  landing page
 *************************************************************************************/
 /* search section */
+.home-container {
+  margin-top: -70px;
+}
 .search {
-  background-color: #127ccb;
+  background: url('../img/scenic.jpg');
   background-size: cover;
-  background-position-y: 20%;
-  height: 400px;
+  background-position-y: 100%;
+  height: 500px;
 }
 .search-overlay {
+  background-color: #31081f70;
   height: inherit;
 }
 .home-search-container {
-  margin-top: 10%;
+  margin-top: 15%;
   color: white;
 }
 .home-search-container h1 {
@@ -96,27 +119,90 @@ body {
 }
 /* end */
 
+/* about us section */
+.about {
+  height: 400px;
+  background: #2d728f;
+  color: whitesmoke;
+}
+
+.about-description {
+  padding-top: 4%;
+}
+.about-description p {
+  font-weight: 300;
+  font-size: 18px;
+}
+#carousel {
+  padding-top: 10%;
+}
+
+
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
+
+#fade-quote-carousel.carousel {
+padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+opacity: 0;
+-webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+        transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+opacity: 1;
+-webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+        transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+background-color: #ecf3f7;
+border: none;
+}
+.carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+}
+#fade-quote-carousel blockquote {
+  text-align: center;
+  border: none;
+  padding: 2px 20px;
+  margin: 0 0 0px;
+}
+/* end of about us section */
+
 /* 'book with us' section */
 .book-overlay {
   height: inherit;
-  background: rgba(0, 0, 0, 0.4);
+  /* background: rgba(0, 0, 0, 0.4); */
+  background-color: #31081F;
 }
 .book-section {
   margin-top: 8%;
 }
 .book {
-  background: url('../img/road.jpg') no-repeat;
+  /* background: url('../img/road.jpg') no-repeat; */
   background-size: cover;
-  height: 500px;
+  height: 365px;
+  margin-bottom: 6%; 
   color: whitesmoke;
 }
-.book-icons img {
-  height: 150px;
+.book h2 {
+  text-align: center;
+}
+
+.carousel-inner>.item>img {
+  height: 100px;
   margin: auto;
   float: none;
 }
 .book-icons h3 {
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
 }
 /* end */
@@ -128,15 +214,24 @@ body {
 
 /* search update section */
 
-.hero-primary{
-  background-color: #127ccb;
+.hero-primary {
   color: #fff;
-  padding: 23px 19px;
-  height: 300px;
+  margin-top: -70px;
+}
+.update-overlay {
+  background-color: #31081f70;
+  height: inherit;
 }
 .route-update {
-  height: max-content;
-  margin: auto; 
+  background: url('../img/scenic.jpg');
+  /* background-color: #127ccb; */
+  background-size: cover;
+  background-position-y: 100%;
+  height: 250px;
+  /* height: max-content; */
+}
+.update-route-container {
+  margin-top: 7%; 
 }
 .route {
   display: flex;
@@ -158,9 +253,6 @@ body {
   height: 52px;
   color: #000;
 }
-.route-update {
-  margin-top: 3%;
-}
 
 
 .input-group {
@@ -181,14 +273,15 @@ body {
 }
 /* end */
 
-/***************************************************************************************
-results section
-*********************************************************************/
+/*********************************************************************************
+results page
+**********************************************************************************/
 .results {
   display: flex;
   justify-content: flex-start;
   margin-top: 1em;
-  padding-bottom: 15px
+  padding-bottom: 15px;
+  font-size: 22px;
 }
 .scheduleBar .cat{
   height: 2.125em;
@@ -244,7 +337,7 @@ ul {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px 0 rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
   border: 1px solid #d4dee5;
   border-radius: 2px;
-  margin-top: 10px;
+  margin-top: 2%;
   background: #fff;
   height: 125px;
 }
@@ -267,13 +360,13 @@ ul {
 .departure-row .col-md-3 {
   padding: 0;
 }
+.departure-row .col-md-3 a:hover {
+  text-decoration: none;
+}
 
 #bus{
-  /* width: 30%; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: flex-start; */
   flex:1;
+  font-weight: bold;
 }
 
 #departure{
@@ -310,9 +403,95 @@ ul {
 /* Style Ratings */
 .star-ratings {
   display: inline-flex;
-  margin-left: 2%;
+  margin: 0.5% 0 0 2%;
 }
 
 div.star-ratings-rating-user, div.star-ratings-rating-average, div.star-ratings-rating-count {
   display: none;
 }
+/****************************************************************************
+end of results page
+*****************************************************************************/
+
+/****************************************************************************
+bus details page
+*****************************************************************************/
+.bus-details {
+  height: 170px;
+  background: #31081f;
+  margin-top: -70px;
+}
+.bus-details-container {
+  margin-top: 9%;
+  color: white;
+}
+.detail-panels {
+  margin-top: 2%;
+  margin-bottom: 8%;
+}
+.panel-default {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px 0 rgba(0,0,0,0.02), 0 1px 5px 0 rgba(0,0,0,0.12);
+}
+.panel-default .panel-heading {
+  background: white;
+}
+.panel-default .panel-heading h3 {
+  font-weight: bold;
+}
+.passenger-form .form-control {
+  height: 40px;
+}
+
+/*****************************************************************************
+end of bus details page
+******************************************************************************/
+
+/*******************************************************************media queries**************************************************************************************/
+@media screen
+  and (min-device-width: 768px) 
+  and (max-device-width: 991px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .navbar-brand img {
+      height: 50px;
+    }
+    .home-search-container {
+      margin-top: 20%;
+    }
+    .update-route-container {
+      margin-top: 10%; 
+    }
+    .search {
+      height: 450px;
+    }
+    .search-button {
+      width: 100%;
+      border-radius: 0 0 3px 3px;
+    }
+    .book {
+      height: 630px;
+    }
+  }
+@media screen
+  and (min-device-width: 320px) 
+  and (max-device-width: 767px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .navbar-brand img {
+      height: 50px;
+    }
+    .home-search-container {
+      margin-top: 20%;
+    }
+    .search {
+      height: 450px;
+    }
+    .search-button {
+      width: 100%;
+      border-radius: 0 0 3px 3px;
+    }
+    .busSearchResults{
+      display: block;
+    }
+    .book {
+      height: 700px;
+    }
+  }
