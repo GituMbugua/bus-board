@@ -1,6 +1,6 @@
 AfricastalkingGateway==2.0
 astroid==1.5.3
-Babel==2.5.3
+Babel==2.9.1
 certifi==2018.1.18
 chardet==3.0.4
 confusable-homoglyphs==2.0.2
